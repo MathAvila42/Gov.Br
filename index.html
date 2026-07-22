@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>gov.br</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .hero-wrap {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 560px;
+    overflow: hidden;
+    background: #efefef;
+  }
+
+  .hero svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .hero-logo {
+    position: absolute;
+    left: 50%;
+    bottom: -46px;
+    transform: translateX(-50%);
+    font-size: 58px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-shadow:
+      -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff, 3px 3px 0 #fff,
+      -3px 0 0 #fff, 3px 0 0 #fff, 0 -3px 0 #fff, 0 3px 0 #fff;
+  }
+  .hero-logo .g,.hero-logo .o,.hero-logo .v,.hero-logo .r { color: var(--govbr-blue); }
+  .hero-logo .dot { color: var(--govbr-green); }
+  .hero-logo .b { color: var(--govbr-yellow); }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .bottom-section {
+    flex-shrink: 0;
+    padding: 0 26px 18px;
+    position: relative;
+  }
+
+  button.entrar-btn {
+    width: 100%;
+    height: 56px;
+    border: none;
+    border-radius: 28px;
+    background: var(--govbr-blue);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+  button.entrar-btn strong {
+    font-weight: 800;
+  }
+
+  p.entrar-sub {
+    text-align: center;
+    color: #8a8a8a;
+    font-size: 14px;
+    margin: 0 0 26px;
+  }
+  p.entrar-sub strong {
+    font-weight: 700;
+    color: #6d6d6d;
+  }
+
+  .qr-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--govbr-blue);
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .version {
+    position: absolute;
+    right: 26px;
+    bottom: -2px;
+    color: #a0a0a0;
+    font-size: 13px;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <!-- status bar -->
+  <div class="status-bar">
+    <div class="time">
+      15:20
+      <svg width="16" height="16" viewBox="0 0 24 24" class="bell">
+        <path d="M12 3C8.5 3 6 5.7 6 9v3.5L4 16h16l-2-3.5V9c0-3.3-2.5-6-6-6z" fill="none" stroke="#101010" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M10 19a2 2 0 0 0 4 0" fill="none" stroke="#101010" stroke-width="1.6"/>
+        <line x1="3" y1="21" x2="21" y2="3" stroke="#101010" stroke-width="1.6"/>
+      </svg>
+    </div>
+    <div class="right">
+      <svg width="18" height="12" viewBox="0 0 18 12" class="bars">
+        <rect x="0" y="7" width="3" height="5" rx="0.5" fill="#101010"/>
+        <rect x="5" y="5" width="3" height="7" rx="0.5" fill="#101010"/>
+        <rect x="10" y="2.5" width="3" height="9.5" rx="0.5" fill="#101010"/>
+        <rect x="15" y="0" width="3" height="12" rx="0.5" fill="#c9c9c9"/>
+      </svg>
+      <span>5G</span>
+      <span class="battery-pill">30</span>
+    </div>
+  </div>
+
+  <!-- hero image: duotone illustration of two people -->
+  <div class="hero-wrap">
+  <div class="hero">
+    <svg viewBox="0 0 393 560" preserveAspectRatio="xMidYMin slice">
+      <rect width="393" height="560" fill="#f4f4f4"/>
+      <rect x="150" y="0" width="110" height="560" fill="#ffcd07"/>
+
+      <!-- man, left, grayscale, profile, arm raised with phone -->
+      <g>
+        <path d="M60 250c0-30 22-52 52-52s52 22 52 52v310H60V250z" fill="#3a3a3a"/>
+        <circle cx="112" cy="150" r="40" fill="#3a3a3a"/>
+        <path d="M55 230c-6-20 4-70 20-95 10-16 20-8 16 6-8 28-14 60-10 85z" fill="#4a4a4a"/>
+        <!-- raised arm to phone -->
+        <path d="M78 210c-10-40-18-90-16-120 2-24 22-22 24 0 4 40 10 90 14 120z" fill="#454545"/>
+        <rect x="52" y="60" width="26" height="46" rx="5" fill="#2c2c2c" transform="rotate(-14 65 83)"/>
+      </g>
+
+      <!-- woman, right, grayscale, holding phone in front -->
+      <g>
+        <path d="M230 270c0-34 26-58 58-58s58 24 58 58v290H230V270z" fill="#4a4a4a"/>
+        <circle cx="288" cy="160" r="44" fill="#454545"/>
+        <path d="M250 122c6-24 24-40 40-40s34 16 38 40c4 22-6 30-38 30s-46-8-40-30z" fill="#2f2f2f"/>
+        <path d="M244 130c-8 10-10 26-6 40 6-6 8-18 10-30z" fill="#2f2f2f"/>
+        <path d="M328 132c8 10 10 26 6 40-6-6-8-18-10-30z" fill="#2f2f2f"/>
+        <!-- overalls straps -->
+        <path d="M258 240l10 60M318 240l-10 60" stroke="#6b6b6b" stroke-width="10" stroke-linecap="round"/>
+        <!-- arms holding phone -->
+        <path d="M250 300c-14 14-20 34-18 54l24 4c0-20 2-38 10-52z" fill="#3f3f3f"/>
+        <path d="M326 300c14 14 20 34 18 54l-24 4c0-20-2-38-10-52z" fill="#3f3f3f"/>
+        <rect x="268" y="336" width="30" height="50" rx="5" fill="#1e1e1e"/>
+      </g>
+    </svg>
+
+  </div>
+    <div class="hero-logo"><span class="g">g</span><span class="o">o</span><span class="v">v</span><span class="dot">.</span><span class="b">b</span><span class="r">r</span></div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <div class="bottom-section">
+    <button class="entrar-btn">Entrar com <strong>gov.br</strong></button>
+    <p class="entrar-sub">Clique para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
+
+    <div class="qr-row">
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="7" height="7" fill="none" stroke="#1451b4" stroke-width="1.8"/>
+        <rect x="15" y="2" width="7" height="7" fill="none" stroke="#1451b4" stroke-width="1.8"/>
+        <rect x="2" y="15" width="7" height="7" fill="none" stroke="#1451b4" stroke-width="1.8"/>
+        <rect x="14" y="14" width="3" height="3" fill="#1451b4"/>
+        <rect x="19" y="14" width="3" height="3" fill="#1451b4"/>
+        <rect x="14" y="19" width="3" height="3" fill="#1451b4"/>
+        <rect x="19" y="19" width="3" height="3" fill="#1451b4"/>
+      </svg>
+      Ler QR code
+    </div>
+
+    <span class="version">3.8.4</span>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+:root {
+  --govbr-blue: #1451b4;
+  --govbr-blue-dark: #0c326f;
+  --govbr-green: #168821;
+  --govbr-yellow: #ffcd07;
+  --govbr-text: #1c1c1c;
+  --govbr-gray: #6d6d6d;
+  --govbr-gray-light: #949494;
+  --govbr-input-yellow: #fbf3c4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #e9e9ec;
+  font-family: "Rawline", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.phone {
+  width: 393px;
+  min-height: 852px;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 30px 60px rgba(0, 0, 0, 0.18);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Status bar ---------- */
+.status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 26px 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #101010;
+  flex-shrink: 0;
+}
+
+.status-bar .time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-bar .right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-bar .bars svg,
+.status-bar .bell svg {
+  display: block;
+}
+
+.battery-pill {
+  background: #101010;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 9px;
+  padding: 1px 6px 2px;
+  min-width: 22px;
+  text-align: center;
+}
+
+/* ---------- Browser chrome (screen 1) ---------- */
+.browser-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 20px 14px;
+  flex-shrink: 0;
+}
+
+.round-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f2f2f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.browser-bar .url {
+  font-weight: 700;
+  font-size: 15px;
+  color: #1c1c1c;
+}
+
+.bottom-toolbar {
+  margin-top: auto;
+  flex-shrink: 0;
+  padding: 10px 22px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom-toolbar .group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.doubts-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding-bottom: 14px;
+  color: #b9c4dc;
+  font-size: 14px;
+}

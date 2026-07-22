@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>sso.acesso.gov.br</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .gov-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px 16px;
+  }
+
+  .gov-logo {
+    font-size: 34px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  .gov-logo .g,.gov-logo .o,.gov-logo .v,.gov-logo .r { color: var(--govbr-blue); }
+  .gov-logo .dot { color: var(--govbr-green); }
+  .gov-logo .b { color: var(--govbr-yellow); }
+
+  .gov-header .icons {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid #e4e4e7;
+    margin: 0;
+  }
+
+  .content {
+    padding: 26px 24px 10px;
+    overflow-y: auto;
+    flex: 1;
+  }
+
+  h1.title {
+    font-size: 23px;
+    font-weight: 700;
+    color: #101010;
+    margin: 0 0 30px;
+  }
+
+  .field-label-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .field-label-row .icon-box {
+    width: 34px;
+    height: 26px;
+    background: var(--govbr-blue);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .field-label-row span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #101010;
+  }
+
+  p.helper {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0 0 26px;
+    line-height: 1.4;
+  }
+
+  label.cpf-label {
+    display: block;
+    font-size: 15px;
+    color: #101010;
+    margin-bottom: 8px;
+  }
+
+  input.cpf-input {
+    width: 100%;
+    height: 52px;
+    border-radius: 8px;
+    border: 2px solid #5b9bd5;
+    background: var(--govbr-input-yellow);
+    box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.35);
+    font-size: 16px;
+    font-style: italic;
+    color: #6d6d6d;
+    padding: 0 16px;
+    margin-bottom: 26px;
+  }
+
+  input.cpf-input::placeholder {
+    color: #8d8d6a;
+    font-style: italic;
+  }
+
+  button.continue-btn {
+    width: 100%;
+    height: 54px;
+    border: none;
+    border-radius: 27px;
+    background: var(--govbr-blue);
+    color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .other-options-title {
+    font-size: 16px;
+    color: #101010;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #101010;
+    margin-bottom: 22px;
+  }
+
+  .option-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 26px;
+  }
+
+  .option-row .label {
+    font-size: 16px;
+    color: #101010;
+    white-space: nowrap;
+  }
+
+  .option-row.bank .label {
+    color: var(--govbr-green);
+    font-weight: 500;
+  }
+
+  .option-row.bank {
+    gap: 10px;
+  }
+
+  .badge {
+    background: var(--govbr-green);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 6px;
+    border-radius: 3px;
+    letter-spacing: 0.2px;
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <!-- status bar -->
+  <div class="status-bar">
+    <div class="time">
+      15:20
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="bell">
+        <path d="M12 3C8.5 3 6 5.7 6 9v3.5L4 16h16l-2-3.5V9c0-3.3-2.5-6-6-6z" stroke="#101010" stroke-width="1.6" stroke-linejoin="round"/>
+        <path d="M10 19a2 2 0 0 0 4 0" stroke="#101010" stroke-width="1.6"/>
+        <line x1="3" y1="21" x2="21" y2="3" stroke="#101010" stroke-width="1.6"/>
+      </svg>
+    </div>
+    <div class="right">
+      <svg width="18" height="12" viewBox="0 0 18 12" class="bars">
+        <rect x="0" y="7" width="3" height="5" rx="0.5" fill="#101010"/>
+        <rect x="5" y="5" width="3" height="7" rx="0.5" fill="#101010"/>
+        <rect x="10" y="2.5" width="3" height="9.5" rx="0.5" fill="#101010"/>
+        <rect x="15" y="0" width="3" height="12" rx="0.5" fill="#c9c9c9"/>
+      </svg>
+      <span>5G</span>
+      <span class="battery-pill">29</span>
+    </div>
+  </div>
+
+  <!-- browser chrome -->
+  <div class="browser-bar">
+    <div class="round-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24">
+        <line x1="4" y1="4" x2="20" y2="20" stroke="#101010" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="20" y1="4" x2="4" y2="20" stroke="#101010" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="url">sso.acesso.gov.br</div>
+    <div class="round-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="3" stroke="#101010" stroke-width="1.8" fill="none"/>
+        <line x1="7" y1="10" x2="17" y2="10" stroke="#101010" stroke-width="1.8"/>
+        <line x1="7" y1="14" x2="17" y2="14" stroke="#101010" stroke-width="1.8"/>
+      </svg>
+    </div>
+  </div>
+
+  <div class="gov-header">
+    <div class="gov-logo"><span class="g">g</span><span class="o">o</span><span class="v">v</span><span class="dot">.</span><span class="b">b</span><span class="r">r</span></div>
+    <div class="icons">
+      <svg width="26" height="26" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" fill="#101010"/>
+        <path d="M12 2a10 10 0 0 0 0 20z" fill="#fff"/>
+        <circle cx="12" cy="12" r="10" stroke="#101010" stroke-width="1.4" fill="none"/>
+      </svg>
+      <svg width="26" height="26" viewBox="0 0 24 24">
+        <circle cx="17" cy="6" r="2.4" fill="none" stroke="#1451b4" stroke-width="1.6"/>
+        <path d="M4 21c2-4 4-6 8-6M8 12l3-1 2 3 4 1M12 12v-3l4-2" stroke="#1451b4" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="content">
+    <h1 class="title">Identifique-se no gov.br com:</h1>
+
+    <div class="field-label-row">
+      <div class="icon-box">
+        <svg width="20" height="16" viewBox="0 0 24 20" fill="none">
+          <rect x="0.5" y="0.5" width="23" height="19" rx="2" fill="#fff"/>
+          <circle cx="7" cy="10" r="3.2" fill="#1451b4"/>
+          <rect x="13" y="6" width="8" height="1.6" fill="#1451b4"/>
+          <rect x="13" y="9.5" width="8" height="1.6" fill="#1451b4"/>
+          <rect x="13" y="13" width="5" height="1.6" fill="#1451b4"/>
+        </svg>
+      </div>
+      <span>Número do CPF</span>
+    </div>
+
+    <p class="helper">Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
+
+    <label class="cpf-label">CPF</label>
+    <input class="cpf-input" type="text" placeholder="Digite seu CPF" />
+
+    <button class="continue-btn">Continuar</button>
+
+    <div class="other-options-title">Outras opções de identificação:</div>
+
+    <div class="option-row bank">
+      <svg width="30" height="30" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="11" fill="none" stroke="#168821" stroke-width="1.8"/>
+        <text x="12" y="17" font-size="13" font-weight="700" text-anchor="middle" fill="#168821">$</text>
+      </svg>
+      <span class="label">Login com seu banco</span>
+      <span class="badge">SUA CONTA SERÁ PRATA</span>
+    </div>
+
+    <div class="option-row">
+      <svg width="30" height="30" viewBox="0 0 24 24">
+        <rect x="2" y="2" width="20" height="20" rx="4" fill="#1451b4"/>
+        <path d="M8 16l3-7 3 7M9 13.5h4" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <span class="label">Seu aplicativo gov.br</span>
+    </div>
+
+    <div class="option-row">
+      <svg width="30" height="30" viewBox="0 0 24 24">
+        <rect x="7" y="1" width="10" height="22" rx="4" fill="#1451b4"/>
+        <rect x="9" y="5" width="6" height="3" rx="1" fill="#fff"/>
+      </svg>
+      <span class="label">Seu certificado digital</span>
+    </div>
+
+    <div class="option-row">
+      <svg width="32" height="30" viewBox="0 0 24 24">
+        <path d="M6 17a4 4 0 0 1 .3-8 5 5 0 0 1 9.6-1.5A4.5 4.5 0 0 1 19 17H6z" fill="#1451b4"/>
+        <circle cx="12.5" cy="14.2" r="1.6" fill="#fff"/>
+        <rect x="11.8" y="15.4" width="1.4" height="2.4" fill="#fff"/>
+      </svg>
+      <span class="label">Seu certificado digital em nuvem</span>
+    </div>
+  </div>
+
+  <div class="doubts-row">
+    <svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#b9c4dc" stroke-width="1.6"/><text x="12" y="16" font-size="12" text-anchor="middle" fill="#b9c4dc">?</text></svg>
+    Está com dúvidas ...
+  </div>
+
+  <div class="bottom-toolbar">
+    <div class="round-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M16 4l-8 8 8 8" stroke="#1451b4" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="group">
+      <div class="round-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3v13M8 7l4-4 4 4" stroke="#1451b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="5" y="15" width="14" height="6" rx="1.5" stroke="#1451b4" stroke-width="1.8" fill="none"/></svg>
+      </div>
+      <div class="round-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7" stroke="#1451b4" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#1451b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="round-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#1451b4" stroke-width="1.8" fill="none"/><path d="M15 9l-4 2-2 4 4-2z" fill="#1451b4"/></svg>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
