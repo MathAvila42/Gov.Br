@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>gov.br</title>
 <script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
@@ -11,7 +12,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 16px;
+    padding: var(--space-md) var(--page-x);
     flex-shrink: 0;
   }
 
@@ -56,8 +57,8 @@
   }
 
   .greeting-panel {
-    background: #e4e4e7;
-    padding: 18px 20px 20px;
+    background: var(--gray-200);
+    padding: var(--space-md) var(--page-x) var(--space-lg);
     flex-shrink: 0;
   }
 
@@ -82,30 +83,30 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    padding: 5px 12px;
-    border-radius: 4px;
+    padding: var(--space-2xs) var(--space-sm);
+    border-radius: var(--radius-xs);
   }
 
   .content {
     flex: 1;
-    padding: 20px 20px 0;
+    padding: var(--space-lg) var(--page-x) 0;
   }
 
   .br-input {
-    margin-bottom: 26px;
+    margin-bottom: var(--space-lg);
   }
 
   h2.section-title {
     font-size: var(--fs-label);
     font-weight: 700;
-    color: #101010;
-    margin: 0 0 16px;
+    color: var(--gray-900);
+    margin: 0 0 var(--space-md);
   }
 
   .services-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 14px;
+    gap: var(--space-md);
   }
 
   .service-card {
@@ -113,12 +114,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: var(--space-sm);
     min-height: 110px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
     background: #fff;
-    padding: 16px 8px;
+    padding: var(--space-md) var(--space-xs);
     cursor: pointer;
     font-family: inherit;
   }
@@ -142,7 +143,7 @@
   .service-card .label {
     font-size: var(--fs-small);
     font-weight: 600;
-    color: #1c1c1c;
+    color: var(--gray-900);
     text-align: center;
     line-height: 1.3;
   }

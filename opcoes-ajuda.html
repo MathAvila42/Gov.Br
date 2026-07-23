@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Opções de ajuda</title>
 <script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
@@ -9,7 +10,7 @@
 <style>
   .content {
     flex: 1;
-    padding: 48px 28px 0;
+    padding: var(--space-2xl) var(--page-x) 0;
   }
 
   h1.title {
@@ -17,11 +18,11 @@
     font-size: var(--fs-title);
     font-weight: 700;
     color: var(--govbr-blue);
-    margin: 0 0 36px;
+    margin: 0 0 var(--space-xl);
   }
 
   .br-checkbox {
-    margin-bottom: 30px;
+    margin-bottom: var(--space-lg);
   }
 
   .br-checkbox label {
@@ -34,12 +35,12 @@
     color: var(--govbr-gray);
     font-size: var(--fs-small);
     line-height: 1.5;
-    margin: 8px 0 0;
+    margin: var(--space-xs) 0 0;
   }
 
   .bottom-section {
     flex-shrink: 0;
-    padding: 16px 28px 8px;
+    padding: var(--space-md) var(--page-x) var(--space-xs);
   }
 </style>
 </head>

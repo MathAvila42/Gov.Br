@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>gov.br</title>
 <script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <!-- Design System de Governo Federal (@govbr-ds/core v3.7.0), vendored locally -->
@@ -9,17 +10,20 @@
 <link rel="stylesheet" href="styles.css">
 <style>
   .phone {
-    height: 808px;
+    min-height: 808px;
     background:
       repeating-linear-gradient(115deg, rgba(0,0,0,0.025) 0px, rgba(0,0,0,0.025) 1px, transparent 1px, transparent 90px),
       repeating-linear-gradient(115deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 45px),
       #f7f7f8;
   }
 
-  /* edge-to-edge hero: yellow band + photo run behind the status bar */
+  /* edge-to-edge hero: yellow band + photo run behind the status bar.
+     Sized by aspect-ratio (not a fixed px height) so it scales with the phone's
+     width on any device instead of being tied to one exact viewport size. */
   .hero-wrap {
     position: relative;
-    height: 380px;
+    width: 100%;
+    aspect-ratio: 393 / 380;
     flex-shrink: 0;
   }
 
@@ -53,9 +57,10 @@
   .hero-logo {
     position: absolute;
     left: 50%;
-    top: 374px;
+    top: calc(100% - 6px);
     transform: translateX(-50%);
-    width: 207px;
+    width: 52.7%;
+    max-width: 220px;
     height: auto;
     display: block;
     filter:
@@ -70,7 +75,7 @@
 
   .bottom-section {
     flex-shrink: 0;
-    padding: 0 32px 48px;
+    padding: 0 var(--page-x) var(--space-2xl);
     position: relative;
   }
 

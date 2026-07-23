@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vamos provar que é você</title>
 <script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
@@ -9,7 +10,7 @@
 <style>
   .content {
     flex: 1;
-    padding: 48px 24px 24px;
+    padding: var(--space-2xl) var(--page-x) var(--space-lg);
   }
 
   h1.title {
@@ -17,30 +18,30 @@
     font-size: var(--fs-title);
     font-weight: 700;
     color: var(--govbr-blue);
-    margin: 0 0 12px;
+    margin: 0 0 var(--space-sm);
   }
 
   p.subtitle {
     text-align: center;
     font-size: var(--fs-small);
     color: var(--govbr-gray);
-    margin: 0 0 32px;
+    margin: 0 0 var(--space-xl);
   }
 
   .verify-option {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: var(--space-md);
     width: 100%;
     text-align: left;
     background: #fff;
-    border: 2px solid #b0b0b0;
-    border-radius: 10px;
-    padding: 16px 18px;
-    margin-bottom: 18px;
+    border: 2px solid var(--gray-400);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
     font-size: var(--fs-body);
     font-family: inherit;
-    color: #1c1c1c;
+    color: var(--gray-900);
     cursor: pointer;
     min-height: var(--touch-target);
   }
@@ -62,7 +63,7 @@
 
   .verify-option .chevron {
     flex-shrink: 0;
-    color: #949494;
+    color: var(--gray-500);
   }
 
   .verify-option:hover,

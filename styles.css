@@ -28,6 +28,36 @@
 
   /* Minimum comfortable touch target (WCAG 2.5.5 AAA is 44px; we go bigger for older users) */
   --touch-target: 56px;
+
+  /* ---------- Spacing scale (4px base unit) ----------
+     Every margin/padding in the app should come from this scale instead of a one-off value. */
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* Standard horizontal gutter for every screen's content */
+  --page-x: 24px;
+
+  /* ---------- Corner radius scale ---------- */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+
+  /* ---------- Neutral scale (consolidates every ad-hoc gray in the app) ---------- */
+  --gray-100: #f2f2f2;
+  --gray-200: #e4e4e7;
+  --gray-300: #cccccc;
+  --gray-400: #b0b0b0;
+  --gray-500: #949494;
+  --gray-600: #767676;
+  --gray-700: #595959;
+  --gray-800: #3a3a3a;
+  --gray-900: #1c1c1c;
 }
 
 html.text-large {
@@ -54,7 +84,9 @@ html, body {
 body {
   display: flex;
   justify-content: center;
-  padding: 24px 0;
+  padding: var(--space-lg) 0;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Strong, unmissable focus ring for keyboard/switch-device navigation */
@@ -66,6 +98,10 @@ input:focus-visible,
   outline-offset: 2px;
 }
 
+/* ---------- Responsive app frame ----------
+   On a real phone (viewport <= 480px) the app fills the screen edge-to-edge, like an
+   installed app. On a wider viewport (desktop/tablet, i.e. previewing the prototype in a
+   browser) it renders inside a fixed-width mock phone frame instead. */
 .phone {
   width: 393px;
   min-height: 852px;
@@ -75,6 +111,26 @@ input:focus-visible,
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 30px 60px rgba(0, 0, 0, 0.18);
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 480px) {
+  html, body {
+    background: #ffffff;
+  }
+
+  body {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .phone {
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    box-shadow: none;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
 /* ---------- Status bar ---------- */
