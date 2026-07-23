@@ -16,43 +16,91 @@
     align-items: center;
   }
 
-  h1.title {
-    font-size: var(--fs-title);
-    font-weight: 700;
-    color: var(--gray-900);
-    margin: 0 0 var(--space-xl);
-  }
-
   .entrar-logo {
     width: 220px;
     max-width: 56%;
     height: auto;
-    margin-bottom: var(--space-lg);
+    flex-shrink: 0;
   }
 
-  .success-row {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    color: var(--govbr-green);
-    font-size: var(--fs-small);
-    font-weight: 700;
-    margin-bottom: var(--space-lg);
-    align-self: flex-start;
+  .spacer-lg {
+    flex: 1.6;
   }
 
-  .br-input {
+  .spacer-sm {
+    flex: 1;
+  }
+
+  .field-wrap {
     width: 100%;
-    margin-bottom: var(--space-lg);
+    flex-shrink: 0;
   }
 
-  .br-input.input-button button.br-button {
-    color: var(--govbr-gray);
+  .cpf-underline {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--gray-400);
+    background: transparent;
+    font-size: var(--fs-body);
+    color: var(--gray-900);
+    padding: var(--space-sm) 2px;
+    font-family: inherit;
+  }
+
+  .cpf-underline::placeholder {
+    color: var(--gray-700);
+    font-style: normal;
+  }
+
+  .cpf-underline:focus {
+    border-bottom: 2px solid var(--govbr-blue);
+  }
+
+  .forgot-link {
+    flex-shrink: 0;
+    color: var(--govbr-blue);
+    font-size: var(--fs-body);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .bottom-section {
     flex-shrink: 0;
-    padding: 0 var(--page-x) var(--space-xs);
+    padding: 0 var(--page-x) var(--space-2xl);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: var(--touch-target);
+    border: none;
+    border-radius: 999px;
+    font-size: var(--fs-button);
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: var(--govbr-blue);
+    color: #fff;
+    margin-bottom: var(--space-sm);
+  }
+
+  .btn-secondary {
+    background: var(--gray-100);
+    color: var(--gray-900);
+  }
+
+  .btn-secondary .inline-logo {
+    height: 1.2em;
+    width: auto;
+    display: inline-block;
   }
 </style>
 </head>
@@ -60,36 +108,26 @@
 <div class="phone">
 
   <div class="content">
-    <h1 class="title">entrar</h1>
     <img class="entrar-logo" src="assets/govbr-logo.png" alt="gov.br">
 
-    <div class="success-row">
-      <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="var(--govbr-green)"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      cpf validado com sucesso
+    <div class="spacer-lg"></div>
+
+    <div class="field-wrap">
+      <input class="cpf-underline" type="text" inputmode="numeric" placeholder="Número de CPF" aria-label="Número de CPF">
     </div>
 
-    <div class="br-input input-button">
-      <label for="cpf-entrar">CPF</label>
-      <input id="cpf-entrar" type="text" placeholder="Número de CPF">
-      <button class="br-button" type="button" aria-label="Limpar campo" onclick="document.getElementById('cpf-entrar').value=''">
-        <svg width="16" height="16" viewBox="0 0 24 24"><line x1="4" y1="4" x2="20" y2="20" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><line x1="20" y1="4" x2="4" y2="20" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
-      </button>
-    </div>
+    <div class="spacer-sm"></div>
 
-    <div class="br-input">
-      <label for="senha-entrar">Senha</label>
-      <input id="senha-entrar" type="password" placeholder="Senha">
-    </div>
+    <a class="forgot-link" href="#">Esqueci a senha</a>
+
+    <div class="spacer-sm"></div>
   </div>
 
   <div class="bottom-section">
-    <button class="br-button primary large block" type="button" onclick="location.href='vamos-provar.html'">Confirmar</button>
-  </div>
-
-  <div class="step-dots">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot active"></span>
+    <button class="btn-primary" type="button" onclick="location.href='vamos-provar.html'">Entrar</button>
+    <button class="btn-secondary" type="button" onclick="location.href='cpf-login.html'">
+      Entrar com <img class="inline-logo" src="assets/govbr-logo.png" alt="gov.br">
+    </button>
   </div>
 
 </div>
