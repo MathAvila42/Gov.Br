@@ -8,29 +8,30 @@
 <style>
   .content {
     flex: 1;
-    padding: 64px 32px 0;
+    padding: 64px 24px 0;
     display: flex;
     flex-direction: column;
   }
 
   h1.title {
     text-align: center;
-    font-size: 32px;
-    font-weight: 500;
-    color: #101010;
-    margin: 0 0 56px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--govbr-blue);
+    margin: 0 0 40px;
   }
 
   p.intro {
-    font-size: 16px;
+    text-align: center;
+    font-size: 16.8px;
     line-height: 1.5;
-    color: #3a3a3a;
+    color: #333333;
     margin: 0;
   }
 
   .bottom-section {
     flex-shrink: 0;
-    padding: 0 32px 32px;
+    padding: 0 24px 8px;
   }
 </style>
 </head>
@@ -44,6 +45,13 @@
 
   <div class="bottom-section">
     <button class="br-button primary large block" type="button" onclick="location.href='texto-tamanho.html'">Seguinte</button>
+  </div>
+
+  <div class="step-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
   </div>
 
 </div>

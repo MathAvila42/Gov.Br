@@ -129,3 +129,24 @@ body {
   color: #b9c4dc;
   font-size: 14px;
 }
+
+/* ---------- Onboarding step-dots (govbr-ds prototype: onbording-1..4) ---------- */
+.step-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.step-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a8c6f6;
+}
+
+.step-dots .dot.active {
+  background: #2670e8;
+}
