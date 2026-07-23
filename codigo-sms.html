@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Insira código SMS</title>
+<link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .content {
+    flex: 1;
+    padding: 48px 24px 0;
+  }
+
+  h1.title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--govbr-blue);
+    margin: 0 0 40px;
+  }
+
+  .code-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  .code-grid input {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    text-align: center;
+    font-size: 24px;
+    border: 1px solid #949494;
+    border-radius: 8px;
+    background: #fff;
+    color: #1c1c1c;
+  }
+
+  .code-grid input:focus {
+    outline: none;
+    border-color: var(--govbr-blue);
+    box-shadow: 0 0 0 2px rgba(19, 81, 180, 0.25);
+  }
+
+  .bottom-section {
+    flex-shrink: 0;
+    padding: 0 24px 8px;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="content">
+    <h1 class="title">Insira código SMS</h1>
+
+    <div class="code-grid">
+      <input type="text" inputmode="numeric" maxlength="1">
+      <input type="text" inputmode="numeric" maxlength="1">
+      <input type="text" inputmode="numeric" maxlength="1">
+      <input type="text" inputmode="numeric" maxlength="1">
+      <input type="text" inputmode="numeric" maxlength="1">
+      <input type="text" inputmode="numeric" maxlength="1">
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <button class="br-button primary large block" type="button" onclick="location.href='dashboard.html'">Confirmar</button>
+  </div>
+
+</div>
+
+<script>
+  const boxes = document.querySelectorAll('.code-grid input');
+  boxes.forEach((box, i) => {
+    box.addEventListener('input', () => {
+      if (box.value && i < boxes.length - 1) boxes[i + 1].focus();
+    });
+    box.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !box.value && i > 0) boxes[i - 1].focus();
+    });
+  });
+</script>
+</body>
+</html>

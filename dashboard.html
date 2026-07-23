@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>gov.br</title>
+<link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    flex-shrink: 0;
+  }
+
+  .top-bar-logo {
+    height: 26px;
+    width: auto;
+  }
+
+  .top-bar .icons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #949494;
+  }
+
+  .greeting-panel {
+    background: #e4e4e7;
+    padding: 18px 20px 22px;
+    flex-shrink: 0;
+  }
+
+  .greeting-panel .ola {
+    font-size: 15px;
+    color: #3a3a3a;
+    margin: 0 0 12px;
+  }
+
+  .placeholder-bar {
+    height: 10px;
+    border-radius: 5px;
+    background: #1c1c1c;
+    margin-bottom: 8px;
+  }
+
+  .nivel-badge {
+    display: inline-block;
+    margin-top: 6px;
+    background: #cb8400;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .content {
+    flex: 1;
+    padding: 20px 20px 0;
+  }
+
+  .br-input {
+    margin-bottom: 24px;
+  }
+
+  h2.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #101010;
+    margin: 0 0 16px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .service-card {
+    aspect-ratio: 1;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="top-bar">
+    <img class="top-bar-logo" src="assets/govbr-logo.png" alt="gov.br">
+    <div class="icons">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 3C8.5 3 6 5.7 6 9v3.5L4 16h16l-2-3.5V9c0-3.3-2.5-6-6-6z" fill="none" stroke="#101010" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 19a2 2 0 0 0 4 0" fill="none" stroke="#101010" stroke-width="1.6"/></svg>
+      <div class="avatar"></div>
+    </div>
+  </div>
+
+  <div class="greeting-panel">
+    <p class="ola">Olá, nome</p>
+    <div class="placeholder-bar" style="width: 55%"></div>
+    <div class="placeholder-bar" style="width: 75%"></div>
+    <div class="placeholder-bar" style="width: 45%"></div>
+    <span class="nivel-badge">nível ouro</span>
+  </div>
+
+  <div class="content">
+    <div class="br-input">
+      <input type="text" placeholder="Pesquisar serviços">
+    </div>
+
+    <h2 class="section-title">Serviços</h2>
+    <div class="services-grid">
+      <div class="service-card"></div>
+      <div class="service-card"></div>
+      <div class="service-card"></div>
+      <div class="service-card"></div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
