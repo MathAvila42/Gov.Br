@@ -112,7 +112,7 @@
     width: 0%;
     background: var(--govbr-blue);
     border-radius: 3px;
-    transition: width 2s linear;
+    transition: width 5s linear;
   }
 </style>
 </head>
@@ -123,8 +123,8 @@
     <button class="back-btn" type="button" onclick="history.back()" aria-label="Voltar">
       <svg width="22" height="22" viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
-    <h1 class="title">Insira código SMS</h1>
-    <p class="subtitle">Enviamos um código de 6 dígitos por SMS para o número cadastrado</p>
+    <h1 class="title" id="title">Insira código SMS</h1>
+    <p class="subtitle" id="subtitle">Enviamos um código de 6 dígitos por SMS para o número cadastrado</p>
 
     <div class="code-grid">
       <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 1 do código">
@@ -135,7 +135,7 @@
       <input type="text" inputmode="numeric" maxlength="1" aria-label="Dígito 6 do código">
     </div>
 
-    <button class="resend" type="button">Reenviar código</button>
+    <button class="resend" type="button" id="resend">Reenviar código</button>
   </div>
 
   <div class="bottom-section">
@@ -158,26 +158,35 @@
   const AUTO_CODE = '386925';
   const phone = document.querySelector('.phone');
 
+  const isEmail = new URLSearchParams(location.search).get('via') === 'email';
+  if (isEmail) {
+    document.getElementById('title').textContent = 'Insira código enviado por e-mail';
+    document.getElementById('subtitle').textContent = 'Enviamos um código de 6 dígitos por e-mail para o endereço cadastrado';
+    document.getElementById('resend').textContent = 'Reenviar e-mail';
+  }
+
   setTimeout(() => {
     boxes.forEach((box, i) => { box.value = AUTO_CODE[i]; });
 
-    const overlay = document.createElement('div');
-    overlay.className = 'auto-fill-overlay';
-    overlay.innerHTML =
-      '<div class="auto-fill-popup">' +
-        '<p>Inserimos o código automaticamente para você</p>' +
-        '<div class="auto-fill-progress"><div class="auto-fill-progress-bar"></div></div>' +
-      '</div>';
-    phone.appendChild(overlay);
-
-    const bar = overlay.querySelector('.auto-fill-progress-bar');
-    requestAnimationFrame(() => { bar.style.width = '100%'; });
-
     setTimeout(() => {
-      overlay.remove();
-      location.href = 'dashboard.html';
-    }, 2000);
-  }, 2000);
+      const overlay = document.createElement('div');
+      overlay.className = 'auto-fill-overlay';
+      overlay.innerHTML =
+        '<div class="auto-fill-popup">' +
+          '<p>Inserimos o código automaticamente para você</p>' +
+          '<div class="auto-fill-progress"><div class="auto-fill-progress-bar"></div></div>' +
+        '</div>';
+      phone.appendChild(overlay);
+
+      const bar = overlay.querySelector('.auto-fill-progress-bar');
+      requestAnimationFrame(() => { bar.style.width = '100%'; });
+
+      setTimeout(() => {
+        overlay.remove();
+        location.href = 'dashboard.html';
+      }, 5000);
+    }, 3000);
+  }, 3000);
 </script>
 </body>
 </html>
