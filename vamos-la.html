@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>vamos lá</title>
+<title>Tamanho de letra</title>
 <script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
 <style>
   .content {
     flex: 1;
-    padding: var(--space-3xl) var(--page-x) 0;
+    padding: var(--space-2xl) var(--page-x) 0;
     display: flex;
     flex-direction: column;
   }
@@ -23,12 +23,41 @@
     margin: 0 0 var(--space-xl);
   }
 
-  p.intro {
+  .size-option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-size: var(--fs-body);
-    line-height: 1.55;
-    color: var(--govbr-body-text);
-    margin: 0;
+    cursor: pointer;
+    background: var(--gray-100);
+    border: 3px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg) var(--space-md);
+    margin-bottom: var(--space-lg);
+    color: var(--gray-900);
+    font-weight: 600;
+    min-height: var(--touch-target);
+  }
+
+  .size-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Each button's own label size is fixed on purpose (it IS the size sample) —
+     it must never follow the page's --fs-* scale, even after a selection. */
+  .size-option.medium { font-size: 19px; }
+  .size-option.larger { font-size: 25px; }
+
+  .size-option:has(input:checked) {
+    border-color: var(--govbr-blue);
+    background: #dce8fa;
+  }
+
+  .size-option:has(input:focus-visible) {
+    outline: 3px solid var(--govbr-blue-vivid);
+    outline-offset: 2px;
   }
 
   .bottom-section {
@@ -41,21 +70,49 @@
 <div class="phone">
 
   <div class="content">
-    <h1 class="title">vamos lá</h1>
-    <p class="intro">texto introdutório sobre o gov e introdução da customização</p>
+    <h1 class="title">Escolha a forma mais confortável para visualizar as telas do aplicativo.</h1>
+
+    <label class="size-option medium">
+      <input type="radio" name="tamanho-texto" value="medio">
+      Teste de tamanho de letra
+    </label>
+
+    <label class="size-option larger">
+      <input type="radio" name="tamanho-texto" value="maior">
+      Teste de tamanho de letra
+    </label>
   </div>
 
   <div class="bottom-section">
-    <button class="br-button primary large block" type="button" onclick="location.href='texto-tamanho.html'">Seguinte</button>
+    <button class="br-button primary large block" type="button" onclick="location.href='opcoes-ajuda.html'">Próximo</button>
   </div>
 
   <div class="step-dots">
     <span class="dot active"></span>
     <span class="dot"></span>
     <span class="dot"></span>
-    <span class="dot"></span>
   </div>
 
 </div>
+
+<script>
+  var saved = 'normal';
+  try { saved = localStorage.getItem('govbr_text_scale') || 'normal'; } catch(e) {}
+
+  function applyScale(scale) {
+    document.documentElement.classList.toggle('text-large', scale === 'large');
+  }
+  applyScale(saved);
+
+  var radios = document.querySelectorAll('input[name="tamanho-texto"]');
+  radios.forEach(function(r) {
+    r.checked = (saved === 'large' && r.value === 'maior') || (saved !== 'large' && r.value === 'medio');
+    r.addEventListener('change', function() {
+      var scale = r.value === 'maior' ? 'large' : 'normal';
+      try { localStorage.setItem('govbr_text_scale', scale); } catch(e) {}
+      applyScale(scale);
+    });
+  });
+</script>
 </body>
 </html>
