@@ -36,6 +36,7 @@
     margin-bottom: var(--space-lg);
     color: var(--gray-900);
     font-weight: 600;
+    font-size: var(--fs-button);
     min-height: var(--touch-target);
   }
 
@@ -44,11 +45,6 @@
     opacity: 0;
     pointer-events: none;
   }
-
-  /* Each button's own label size is fixed on purpose (it IS the size sample) —
-     it must never follow the page's --fs-* scale, even after a selection. */
-  .size-option.medium { font-size: 19px; }
-  .size-option.larger { font-size: 25px; }
 
   .size-option:has(input:checked) {
     border-color: var(--govbr-blue);
@@ -72,14 +68,14 @@
   <div class="content">
     <h1 class="title">Escolha a forma mais confortável para visualizar as telas do aplicativo.</h1>
 
-    <label class="size-option medium">
+    <label class="size-option">
       <input type="radio" name="tamanho-texto" value="medio">
-      Teste de tamanho de letra
+      Eu prefiro esta opção
     </label>
 
-    <label class="size-option larger">
+    <label class="size-option">
       <input type="radio" name="tamanho-texto" value="maior">
-      Teste de tamanho de letra
+      Eu prefiro esta opção
     </label>
   </div>
 
