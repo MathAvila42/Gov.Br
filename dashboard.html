@@ -14,6 +14,9 @@
     justify-content: space-between;
     padding: var(--space-md) var(--page-x);
     flex-shrink: 0;
+    background: #fff;
+    position: relative;
+    z-index: 2;
   }
 
   .top-bar-logo {
@@ -44,108 +47,203 @@
   }
 
   .avatar {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    background: #595959;
+    background: var(--govbr-blue-dark);
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 15px;
     font-weight: 700;
+    border: 2px solid var(--gray-200);
   }
 
-  .greeting-panel {
-    background: var(--gray-200);
-    padding: var(--space-md) var(--page-x) var(--space-lg);
+  /* ---------- Level banner (patterned after the real gov.br home screen) ---------- */
+  .level-banner {
+    background: var(--govbr-blue);
+    padding: var(--space-md) var(--page-x) var(--space-2xl);
     flex-shrink: 0;
   }
 
-  .greeting-panel .ola {
-    font-size: var(--fs-body);
-    color: var(--govbr-text);
-    font-weight: 700;
-    margin: 0 0 4px;
-  }
-
-  .greeting-panel .sub {
-    font-size: var(--fs-small);
-    color: var(--govbr-gray);
-    margin: 0 0 12px;
-  }
-
-  .nivel-badge {
-    display: inline-block;
-    background: #cb8400;
+  .level-banner .greet {
     color: #fff;
+    font-size: var(--fs-body);
+    margin: 0 0 var(--space-xs);
+  }
+  .level-banner .greet strong {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .level-banner .level-label {
+    color: #fff;
+    font-size: var(--fs-label);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin: 0 0 var(--space-md);
+  }
+
+  .level-progress {
+    display: flex;
+    gap: 4px;
+  }
+
+  .level-progress span {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.35);
+  }
+
+  .level-progress span.filled {
+    background: #fff;
+  }
+
+  /* ---------- Rounded content card overlapping the banner, with the level CTA on the seam ---------- */
+  .content-wrap {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    background: #fff;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    margin-top: -20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .level-cta {
+    position: absolute;
+    top: -20px;
+    right: var(--page-x);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fff;
+    color: var(--govbr-blue);
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    padding: var(--space-2xs) var(--space-sm);
-    border-radius: var(--radius-xs);
+    border: none;
+    border-radius: 999px;
+    padding: 10px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+    font-family: inherit;
   }
 
   .content {
     flex: 1;
-    padding: var(--space-lg) var(--page-x) 0;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 40px var(--page-x) var(--space-md);
   }
 
-  .br-input {
-    margin-bottom: var(--space-lg);
+  .search-bar {
+    position: relative;
+    margin-bottom: var(--space-xl);
+  }
+
+  .search-bar input {
+    width: 100%;
+    height: var(--touch-target);
+    border: 1px solid var(--gray-400);
+    border-radius: var(--radius-md);
+    padding: 0 48px 0 var(--space-md);
+    font-size: var(--fs-body);
+    font-style: italic;
+    color: var(--gray-700);
+    font-family: inherit;
+  }
+
+  .search-bar .search-icon {
+    position: absolute;
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--govbr-blue);
+    pointer-events: none;
   }
 
   h2.section-title {
     font-size: var(--fs-label);
     font-weight: 700;
     color: var(--gray-900);
-    margin: 0 0 var(--space-md);
+    margin: 0 0 var(--space-xs);
   }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-md);
+  .br-list .br-item {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
   }
 
-  .service-card {
+  .br-list .icon-box {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .br-list .option-label {
+    font-size: var(--fs-body);
+    font-weight: 700;
+    color: var(--govbr-blue);
+  }
+
+  .br-list .chevron {
+    color: var(--gray-500);
+  }
+
+  /* ---------- Bottom tab bar with elevated center FAB ---------- */
+  .bottom-nav {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    background: #fff;
+    border-top: 1px solid var(--gray-200);
+    padding: var(--space-xs) var(--space-2xs) max(var(--space-xs), env(safe-area-inset-bottom));
+    position: relative;
+    z-index: 2;
+  }
+
+  .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: var(--space-sm);
-    min-height: 110px;
-    border: 2px solid var(--gray-300);
-    border-radius: var(--radius-md);
-    background: #fff;
-    padding: var(--space-md) var(--space-xs);
-    cursor: pointer;
+    gap: 2px;
+    background: none;
+    border: none;
     font-family: inherit;
+    color: var(--gray-600);
+    font-size: 11px;
+    font-weight: 600;
+    padding: var(--space-2xs) var(--space-xs);
+    min-width: 56px;
+    cursor: pointer;
   }
 
-  .service-card:hover,
-  .service-card:focus-visible {
-    border-color: var(--govbr-blue);
-    background: #f3f7fd;
+  .nav-item.active {
+    color: var(--govbr-blue);
   }
 
-  .service-card .icon {
-    width: 40px;
-    height: 40px;
+  .nav-fab {
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: #eef3fc;
+    background: var(--govbr-green);
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .service-card .label {
-    font-size: var(--fs-small);
-    font-weight: 600;
-    color: var(--gray-900);
-    text-align: center;
-    line-height: 1.3;
+    margin-top: -26px;
+    border: 4px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
   }
 </style>
 </head>
@@ -164,36 +262,96 @@
     </div>
   </div>
 
-  <div class="greeting-panel">
-    <p class="ola">Olá, Maria</p>
-    <p class="sub">Bem-vinda de volta</p>
-    <span class="nivel-badge">nível ouro</span>
+  <div class="level-banner">
+    <p class="greet">Olá, <strong>Maria</strong></p>
+    <p class="level-label">Sua conta é nível <strong>ouro</strong></p>
+    <div class="level-progress">
+      <span class="filled"></span>
+      <span class="filled"></span>
+      <span></span>
+    </div>
   </div>
 
-  <div class="content">
-    <div class="br-input">
-      <input type="text" placeholder="Pesquisar serviços">
-    </div>
+  <div class="content-wrap">
+    <button class="level-cta" type="button">
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M4 17l6-6 4 4 6-8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 6h6v6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Aumentar nível
+    </button>
 
-    <h2 class="section-title">Serviços</h2>
-    <div class="services-grid">
-      <button class="service-card" type="button">
-        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="label">Meu INSS</span>
-      </button>
-      <button class="service-card" type="button">
-        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M20 8.5c0 5-3.5 9-8 11.5-4.5-2.5-8-6.5-8-11.5a8 8 0 0 1 16 0z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6v6l4 2" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
-        <span class="label">Cartão do SUS</span>
-      </button>
-      <button class="service-card" type="button">
-        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#1351b4" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-        <span class="label">Meus documentos</span>
-      </button>
-      <button class="service-card" type="button">
-        <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
-        <span class="label">Meus benefícios</span>
-      </button>
+    <div class="content">
+      <div class="search-bar">
+        <input type="text" placeholder="Encontre serviços públicos no gov.br">
+        <span class="search-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><line x1="21" y1="21" x2="16.5" y2="16.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </span>
+      </div>
+
+      <h2 class="section-title">Serviços</h2>
+
+      <div class="br-list" role="list">
+        <div class="br-item" role="listitem">
+          <div class="row align-items-center">
+            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+            <div class="col option-label">Meu INSS</div>
+            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </div>
+        <span class="br-divider"></span>
+        <div class="br-item" role="listitem">
+          <div class="row align-items-center">
+            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 8.5c0 5-3.5 9-8 11.5-4.5-2.5-8-6.5-8-11.5a8 8 0 0 1 16 0z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6v6l4 2" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span></div>
+            <div class="col option-label">Cartão do SUS</div>
+            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </div>
+        <span class="br-divider"></span>
+        <div class="br-item" role="listitem">
+          <div class="row align-items-center">
+            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#1351b4" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
+            <div class="col option-label">Meus documentos</div>
+            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </div>
+        <span class="br-divider"></span>
+        <div class="br-item" role="listitem">
+          <div class="row align-items-center">
+            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span></div>
+            <div class="col option-label">Meus benefícios</div>
+            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <div class="bottom-nav">
+    <button class="nav-item active" type="button">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-4v-6H9v6H5a1 1 0 0 1-1-1v-9z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      Início
+    </button>
+    <button class="nav-item" type="button">
+      <svg width="22" height="22" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="2.5" width="6" height="3" rx="1" fill="currentColor"/><line x1="9" y1="11" x2="15" y2="11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="15" x2="15" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      Dados
+    </button>
+    <button class="nav-fab" type="button" aria-label="QR Code">
+      <svg width="24" height="24" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
+        <rect x="14" y="3" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
+        <rect x="3" y="14" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
+        <rect x="14" y="14" width="3" height="3" fill="#fff"/>
+        <rect x="18" y="14" width="3" height="3" fill="#fff"/>
+        <rect x="14" y="18" width="3" height="3" fill="#fff"/>
+        <rect x="18" y="18" width="3" height="3" fill="#fff"/>
+      </svg>
+    </button>
+    <button class="nav-item" type="button">
+      <svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/><circle cx="7" cy="14.5" r="1.4" fill="currentColor"/></svg>
+      Carteira
+    </button>
+    <button class="nav-item" type="button">
+      <svg width="22" height="22" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      Menu
+    </button>
   </div>
 
 </div>
