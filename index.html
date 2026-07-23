@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>gov.br</title>
+<!-- Design System de Governo Federal (@govbr-ds/core v3.7.0), vendored locally -->
+<link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
 <style>
   .hero-wrap {
@@ -64,18 +66,13 @@
     position: relative;
   }
 
-  button.entrar-btn {
-    width: 100%;
-    height: 56px;
-    border: none;
-    border-radius: 28px;
-    background: var(--govbr-blue);
-    color: #fff;
+  .br-sign-in.primary.block {
+    --button-large: 56px;
     font-size: 18px;
     font-weight: 400;
     margin-bottom: 10px;
   }
-  button.entrar-btn strong {
+  .br-sign-in strong {
     font-weight: 800;
   }
 
@@ -147,18 +144,18 @@
   <div class="spacer"></div>
 
   <div class="bottom-section">
-    <button class="entrar-btn">Entrar com <strong>gov.br</strong></button>
+    <button class="br-sign-in primary large block" type="button">Entrar com&nbsp;<strong>gov.br</strong></button>
     <p class="entrar-sub">Clique para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
 
     <div class="qr-row">
       <svg width="20" height="20" viewBox="0 0 24 24">
-        <rect x="2" y="2" width="7" height="7" fill="none" stroke="#1451b4" stroke-width="1.8"/>
-        <rect x="15" y="2" width="7" height="7" fill="none" stroke="#1451b4" stroke-width="1.8"/>
-        <rect x="2" y="15" width="7" height="7" fill="none" stroke="#1451b4" stroke-width="1.8"/>
-        <rect x="14" y="14" width="3" height="3" fill="#1451b4"/>
-        <rect x="19" y="14" width="3" height="3" fill="#1451b4"/>
-        <rect x="14" y="19" width="3" height="3" fill="#1451b4"/>
-        <rect x="19" y="19" width="3" height="3" fill="#1451b4"/>
+        <rect x="2" y="2" width="7" height="7" fill="none" stroke="#1351b4" stroke-width="1.8"/>
+        <rect x="15" y="2" width="7" height="7" fill="none" stroke="#1351b4" stroke-width="1.8"/>
+        <rect x="2" y="15" width="7" height="7" fill="none" stroke="#1351b4" stroke-width="1.8"/>
+        <rect x="14" y="14" width="3" height="3" fill="#1351b4"/>
+        <rect x="19" y="14" width="3" height="3" fill="#1351b4"/>
+        <rect x="14" y="19" width="3" height="3" fill="#1351b4"/>
+        <rect x="19" y="19" width="3" height="3" fill="#1351b4"/>
       </svg>
       Ler QR code
     </div>

@@ -1,5 +1,6 @@
 :root {
-  --govbr-blue: #1451b4;
+  /* Aligned to @govbr-ds/core tokens: --blue-warm-vivid-70, --green-cool-vivid-50, --yellow-vivid-20 */
+  --govbr-blue: #1351b4;
   --govbr-blue-dark: #0c326f;
   --govbr-green: #168821;
   --govbr-yellow: #ffcd07;

