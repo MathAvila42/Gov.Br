@@ -1,12 +1,17 @@
 :root {
-  /* Aligned to @govbr-ds/core tokens: --blue-warm-vivid-70, --green-cool-vivid-50, --yellow-vivid-20 */
+  /* Aligned to @govbr-ds/core tokens (cross-checked against the UIKIT iOS 13 - Tema GOVBR-DS
+     "Guide - Colors" reference: blue-warm-vivid-*, gray-80/pure-100/pure-0, green-cool-vivid-50,
+     yellow-vivid-20, red-vivid-50) */
   --govbr-blue: #1351b4;
+  --govbr-blue-vivid: #2670e8;
   --govbr-blue-dark: #0c326f;
   --govbr-green: #168821;
   --govbr-yellow: #ffcd07;
+  --govbr-red: #e52207;
   --govbr-text: #1c1c1c;
   --govbr-gray: #6d6d6d;
   --govbr-gray-light: #949494;
+  --govbr-body-text: #333333;
   --govbr-input-yellow: #fbf3c4;
 }
 
