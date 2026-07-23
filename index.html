@@ -7,22 +7,25 @@
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .hero-wrap {
-    position: relative;
-    flex-shrink: 0;
-  }
-
   .phone {
+    height: 808px;
     background:
       repeating-linear-gradient(115deg, rgba(0,0,0,0.025) 0px, rgba(0,0,0,0.025) 1px, transparent 1px, transparent 90px),
       repeating-linear-gradient(115deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 45px),
       #f7f7f8;
   }
 
+  /* edge-to-edge hero: yellow band + photo run behind the status bar */
+  .hero-wrap {
+    position: relative;
+    height: 380px;
+    flex-shrink: 0;
+  }
+
   .hero {
     position: relative;
     width: 100%;
-    height: 560px;
+    height: 100%;
     overflow: hidden;
   }
 
@@ -30,8 +33,8 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 14%;
-    width: 47%;
+    left: 34.6%;
+    width: 30.5%;
     background: var(--govbr-yellow);
   }
 
@@ -46,17 +49,36 @@
     display: block;
   }
 
+  /* translucent status bar overlaid directly on the hero, white icons */
+  .hero-wrap .status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 23px;
+    padding: 4px 22px 0;
+    background: rgba(0, 0, 0, 0.25);
+    z-index: 2;
+    color: #fff;
+  }
+  .hero-wrap .status-bar .time,
+  .hero-wrap .status-bar .right { color: #fff; }
+  .hero-wrap .status-bar svg rect,
+  .hero-wrap .status-bar svg line { fill: #fff; stroke: #fff; }
+  .hero-wrap .status-bar .battery-pill { background: #fff; color: #101010; }
+
   .hero-logo {
     position: absolute;
     left: 50%;
-    bottom: -34px;
+    top: 374px;
     transform: translateX(-50%);
-    width: 190px;
+    width: 207px;
     height: auto;
     display: block;
     filter:
-      drop-shadow(0 0 5px #fff) drop-shadow(0 0 5px #fff)
-      drop-shadow(0 0 5px #fff) drop-shadow(0 0 5px #fff);
+      drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
+      drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
+      drop-shadow(0 0 3px #fff);
   }
 
   .spacer {
@@ -65,13 +87,13 @@
 
   .bottom-section {
     flex-shrink: 0;
-    padding: 0 26px 18px;
+    padding: 0 32px 48px;
     position: relative;
   }
 
   .br-sign-in.primary.block {
-    --button-large: 56px;
-    font-size: 18px;
+    --button-large: 35px;
+    font-size: 16px;
     font-weight: 400;
     margin-bottom: 10px;
   }
@@ -83,7 +105,7 @@
     text-align: center;
     color: #8a8a8a;
     font-size: 14px;
-    margin: 0 0 26px;
+    margin: 0 0 40px;
   }
   p.entrar-sub strong {
     font-weight: 700;
@@ -113,34 +135,34 @@
 <body>
 <div class="phone">
 
-  <!-- status bar -->
-  <div class="status-bar">
-    <div class="time">
-      15:20
-      <svg width="16" height="16" viewBox="0 0 24 24" class="bell">
-        <path d="M12 3C8.5 3 6 5.7 6 9v3.5L4 16h16l-2-3.5V9c0-3.3-2.5-6-6-6z" fill="none" stroke="#101010" stroke-width="1.6" stroke-linejoin="round"/>
-        <path d="M10 19a2 2 0 0 0 4 0" fill="none" stroke="#101010" stroke-width="1.6"/>
-        <line x1="3" y1="21" x2="21" y2="3" stroke="#101010" stroke-width="1.6"/>
-      </svg>
-    </div>
-    <div class="right">
-      <svg width="18" height="12" viewBox="0 0 18 12" class="bars">
-        <rect x="0" y="7" width="3" height="5" rx="0.5" fill="#101010"/>
-        <rect x="5" y="5" width="3" height="7" rx="0.5" fill="#101010"/>
-        <rect x="10" y="2.5" width="3" height="9.5" rx="0.5" fill="#101010"/>
-        <rect x="15" y="0" width="3" height="12" rx="0.5" fill="#c9c9c9"/>
-      </svg>
-      <span>5G</span>
-      <span class="battery-pill">30</span>
-    </div>
-  </div>
-
-  <!-- hero image: reference duotone photo -->
+  <!-- hero image: yellow band + photo, edge-to-edge with the status bar overlaid on top -->
   <div class="hero-wrap">
-  <div class="hero">
-    <div class="hero-yellow-band"></div>
-    <img class="hero-photo" src="assets/hero-woman.png" alt="">
-  </div>
+
+    <div class="status-bar">
+      <div class="time">
+        14:35
+        <svg width="16" height="16" viewBox="0 0 24 24" class="bell">
+          <path d="M12 3C8.5 3 6 5.7 6 9v3.5L4 16h16l-2-3.5V9c0-3.3-2.5-6-6-6z" fill="none" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M10 19a2 2 0 0 0 4 0" fill="none" stroke="#fff" stroke-width="1.6"/>
+          <line x1="3" y1="21" x2="21" y2="3" stroke="#fff" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div class="right">
+        <svg width="18" height="12" viewBox="0 0 18 12" class="bars">
+          <rect x="0" y="7" width="3" height="5" rx="0.5" fill="#fff"/>
+          <rect x="5" y="5" width="3" height="7" rx="0.5" fill="#fff"/>
+          <rect x="10" y="2.5" width="3" height="9.5" rx="0.5" fill="#fff"/>
+          <rect x="15" y="0" width="3" height="12" rx="0.5" fill="#fff"/>
+        </svg>
+        <span>5G</span>
+        <span class="battery-pill">54</span>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-yellow-band"></div>
+      <img class="hero-photo" src="assets/hero-woman.png" alt="">
+    </div>
     <img class="hero-logo" src="assets/govbr-logo.png" alt="gov.br">
   </div>
 
