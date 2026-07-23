@@ -18,9 +18,23 @@
     background: #efefef;
   }
 
-  .hero svg {
-    width: 100%;
+  .hero-yellow-band {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 14%;
+    width: 47%;
+    background: var(--govbr-yellow);
+  }
+
+  .hero-photo {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
     height: 100%;
+    width: auto;
+    max-width: none;
+    transform: translateX(-50%);
     display: block;
   }
 
@@ -121,39 +135,11 @@
     </div>
   </div>
 
-  <!-- hero image: duotone illustration of two people -->
+  <!-- hero image: reference duotone photo -->
   <div class="hero-wrap">
   <div class="hero">
-    <svg viewBox="0 0 393 560" preserveAspectRatio="xMidYMin slice">
-      <rect width="393" height="560" fill="#f4f4f4"/>
-      <rect x="150" y="0" width="110" height="560" fill="#ffcd07"/>
-
-      <!-- man, left, grayscale, profile, arm raised with phone -->
-      <g>
-        <path d="M60 250c0-30 22-52 52-52s52 22 52 52v310H60V250z" fill="#3a3a3a"/>
-        <circle cx="112" cy="150" r="40" fill="#3a3a3a"/>
-        <path d="M55 230c-6-20 4-70 20-95 10-16 20-8 16 6-8 28-14 60-10 85z" fill="#4a4a4a"/>
-        <!-- raised arm to phone -->
-        <path d="M78 210c-10-40-18-90-16-120 2-24 22-22 24 0 4 40 10 90 14 120z" fill="#454545"/>
-        <rect x="52" y="60" width="26" height="46" rx="5" fill="#2c2c2c" transform="rotate(-14 65 83)"/>
-      </g>
-
-      <!-- woman, right, grayscale, holding phone in front -->
-      <g>
-        <path d="M230 270c0-34 26-58 58-58s58 24 58 58v290H230V270z" fill="#4a4a4a"/>
-        <circle cx="288" cy="160" r="44" fill="#454545"/>
-        <path d="M250 122c6-24 24-40 40-40s34 16 38 40c4 22-6 30-38 30s-46-8-40-30z" fill="#2f2f2f"/>
-        <path d="M244 130c-8 10-10 26-6 40 6-6 8-18 10-30z" fill="#2f2f2f"/>
-        <path d="M328 132c8 10 10 26 6 40-6-6-8-18-10-30z" fill="#2f2f2f"/>
-        <!-- overalls straps -->
-        <path d="M258 240l10 60M318 240l-10 60" stroke="#6b6b6b" stroke-width="10" stroke-linecap="round"/>
-        <!-- arms holding phone -->
-        <path d="M250 300c-14 14-20 34-18 54l24 4c0-20 2-38 10-52z" fill="#3f3f3f"/>
-        <path d="M326 300c14 14 20 34 18 54l-24 4c0-20-2-38-10-52z" fill="#3f3f3f"/>
-        <rect x="268" y="336" width="30" height="50" rx="5" fill="#1e1e1e"/>
-      </g>
-    </svg>
-
+    <div class="hero-yellow-band"></div>
+    <img class="hero-photo" src="assets/hero-woman.png" alt="">
   </div>
     <div class="hero-logo"><span class="g">g</span><span class="o">o</span><span class="v">v</span><span class="dot">.</span><span class="b">b</span><span class="r">r</span></div>
   </div>
