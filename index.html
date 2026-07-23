@@ -10,63 +10,53 @@
 <link rel="stylesheet" href="styles.css">
 <style>
   .phone {
-    min-height: 808px;
-    background:
-      repeating-linear-gradient(115deg, rgba(0,0,0,0.025) 0px, rgba(0,0,0,0.025) 1px, transparent 1px, transparent 90px),
-      repeating-linear-gradient(115deg, rgba(255,255,255,0.6) 0px, rgba(255,255,255,0.6) 1px, transparent 1px, transparent 45px),
-      #f7f7f8;
+    background: #f7f7f8;
   }
 
-  /* edge-to-edge hero: yellow band + photo run behind the status bar.
-     Sized by aspect-ratio (not a fixed px height) so it scales with the phone's
-     width on any device instead of being tied to one exact viewport size. */
-  .hero-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 393 / 380;
+  .top-white {
     flex-shrink: 0;
+    background: #f7f7f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-3xl) 0 var(--space-2xl);
   }
 
-  .hero {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .hero-yellow-band {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 34.6%;
-    width: 30.5%;
-    background: var(--govbr-yellow);
-  }
-
-  .hero-photo {
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    height: 100%;
-    width: auto;
-    max-width: none;
-    transform: translateX(-50%);
-    display: block;
-  }
-
-  .hero-logo {
-    position: absolute;
-    left: 50%;
-    top: calc(100% - 6px);
-    transform: translateX(-50%);
-    width: 52.7%;
-    max-width: 220px;
+  .top-white .top-logo {
+    width: 58%;
+    max-width: 230px;
     height: auto;
     display: block;
-    filter:
-      drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff)
-      drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff)
-      drop-shadow(0 0 3px #fff);
+  }
+
+  .blue-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: var(--govbr-blue);
+    background-image: url('assets/paper-texture.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+  }
+
+  .greeting {
+    padding: var(--space-2xl) var(--page-x) 0;
+  }
+
+  .greeting h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 var(--space-md);
+  }
+
+  .greeting p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: var(--fs-body);
+    line-height: 1.5;
+    margin: 0;
   }
 
   .spacer {
@@ -81,24 +71,23 @@
 
   .br-sign-in.primary.block {
     --button-large: var(--touch-target);
+    background-color: #fff !important;
+    color: var(--govbr-blue) !important;
     font-size: var(--fs-button);
-    font-weight: 400;
+    font-weight: 700;
     margin-bottom: 14px;
-  }
-  .br-sign-in strong {
-    font-weight: 800;
   }
 
   p.entrar-sub {
     text-align: center;
-    color: var(--govbr-gray);
+    color: rgba(255, 255, 255, 0.85);
     font-size: var(--fs-small);
     line-height: 1.4;
     margin: 0 0 32px;
   }
   p.entrar-sub strong {
     font-weight: 700;
-    color: var(--govbr-text);
+    color: #fff;
   }
 
   .qr-row {
@@ -106,7 +95,7 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    color: var(--govbr-blue);
+    color: #fff;
     font-weight: 700;
     font-size: var(--fs-small);
     margin-bottom: 8px;
@@ -118,34 +107,37 @@
 <body>
 <div class="phone">
 
-  <!-- hero image: yellow band + photo -->
-  <div class="hero-wrap">
-
-    <div class="hero">
-      <div class="hero-yellow-band"></div>
-      <img class="hero-photo" src="assets/hero-woman.png" alt="">
-    </div>
-    <img class="hero-logo" src="assets/govbr-logo.png" alt="gov.br">
+  <div class="top-white">
+    <img class="top-logo" src="assets/govbr-logo.png" alt="gov.br">
   </div>
 
-  <div class="spacer"></div>
+  <div class="blue-section">
 
-  <div class="bottom-section">
-    <button class="br-sign-in primary large block" type="button" onclick="location.href='vamos-la.html'">Começar</button>
-    <p class="entrar-sub">Clique para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
-
-    <div class="qr-row">
-      <svg width="20" height="20" viewBox="0 0 24 24">
-        <rect x="2" y="2" width="7" height="7" fill="none" stroke="#1351b4" stroke-width="1.8"/>
-        <rect x="15" y="2" width="7" height="7" fill="none" stroke="#1351b4" stroke-width="1.8"/>
-        <rect x="2" y="15" width="7" height="7" fill="none" stroke="#1351b4" stroke-width="1.8"/>
-        <rect x="14" y="14" width="3" height="3" fill="#1351b4"/>
-        <rect x="19" y="14" width="3" height="3" fill="#1351b4"/>
-        <rect x="14" y="19" width="3" height="3" fill="#1351b4"/>
-        <rect x="19" y="19" width="3" height="3" fill="#1351b4"/>
-      </svg>
-      Ler QR code
+    <div class="greeting">
+      <h1>Olá!</h1>
+      <p>Consulte seus documentos e utilize serviços do Governo Federal com rapidez, segurança e facilidade.</p>
     </div>
+
+    <div class="spacer"></div>
+
+    <div class="bottom-section">
+      <button class="br-sign-in primary large block" type="button" onclick="location.href='vamos-la.html'">Começar</button>
+      <p class="entrar-sub">Clique para <strong>criar</strong> ou <strong>acessar</strong> sua conta gov.br</p>
+
+      <div class="qr-row">
+        <svg width="20" height="20" viewBox="0 0 24 24">
+          <rect x="2" y="2" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
+          <rect x="15" y="2" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
+          <rect x="2" y="15" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
+          <rect x="14" y="14" width="3" height="3" fill="#fff"/>
+          <rect x="19" y="14" width="3" height="3" fill="#fff"/>
+          <rect x="14" y="19" width="3" height="3" fill="#fff"/>
+          <rect x="19" y="19" width="3" height="3" fill="#fff"/>
+        </svg>
+        Ler QR code
+      </div>
+    </div>
+
   </div>
 
 </div>
