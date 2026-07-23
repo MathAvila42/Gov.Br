@@ -73,6 +73,47 @@
     flex-shrink: 0;
     padding: 0 var(--page-x) var(--space-xs);
   }
+
+  .auto-fill-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+  }
+
+  .auto-fill-popup {
+    width: 260px;
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  .auto-fill-popup p {
+    font-size: var(--fs-body);
+    font-weight: 600;
+    color: var(--gray-900);
+    margin: 0 0 var(--space-md);
+  }
+
+  .auto-fill-progress {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--gray-200);
+    overflow: hidden;
+  }
+
+  .auto-fill-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--govbr-blue);
+    border-radius: 3px;
+    transition: width 2s linear;
+  }
 </style>
 </head>
 <body>
@@ -113,6 +154,30 @@
       if (e.key === 'Backspace' && !box.value && i > 0) boxes[i - 1].focus();
     });
   });
+
+  const AUTO_CODE = '386925';
+  const phone = document.querySelector('.phone');
+
+  setTimeout(() => {
+    boxes.forEach((box, i) => { box.value = AUTO_CODE[i]; });
+
+    const overlay = document.createElement('div');
+    overlay.className = 'auto-fill-overlay';
+    overlay.innerHTML =
+      '<div class="auto-fill-popup">' +
+        '<p>Inserimos o código automaticamente para você</p>' +
+        '<div class="auto-fill-progress"><div class="auto-fill-progress-bar"></div></div>' +
+      '</div>';
+    phone.appendChild(overlay);
+
+    const bar = overlay.querySelector('.auto-fill-progress-bar');
+    requestAnimationFrame(() => { bar.style.width = '100%'; });
+
+    setTimeout(() => {
+      overlay.remove();
+      location.href = 'dashboard.html';
+    }, 2000);
+  }, 2000);
 </script>
 </body>
 </html>
