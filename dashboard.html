@@ -173,30 +173,56 @@
     font-size: var(--fs-label);
     font-weight: 700;
     color: var(--gray-900);
-    margin: 0 0 var(--space-xs);
+    margin: 0 0 var(--space-md);
   }
 
-  .br-list .br-item {
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
   }
 
-  .br-list .icon-box {
-    width: 24px;
-    height: 24px;
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    min-height: 110px;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    background: #fff;
+    padding: var(--space-md) var(--space-xs);
+    cursor: pointer;
+    font-family: inherit;
+  }
+
+  .service-card:hover,
+  .service-card:focus-visible {
+    border-color: var(--govbr-blue);
+    background: #f3f7fd;
+  }
+
+  .service-card.hidden {
+    display: none;
+  }
+
+  .service-card .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #eef3fc;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .br-list .option-label {
-    font-size: var(--fs-body);
-    font-weight: 700;
-    color: var(--govbr-blue);
-  }
-
-  .br-list .chevron {
-    color: var(--gray-500);
+  .service-card .label {
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--gray-900);
+    text-align: center;
+    line-height: 1.3;
   }
 
   /* ---------- Bottom tab bar with elevated center FAB ---------- */
@@ -230,20 +256,6 @@
 
   .nav-item.active {
     color: var(--govbr-blue);
-  }
-
-  .nav-fab {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: var(--govbr-green);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: -26px;
-    border: 4px solid #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    cursor: pointer;
   }
 </style>
 </head>
@@ -288,38 +300,23 @@
 
       <h2 class="section-title">Serviços</h2>
 
-      <div class="br-list" role="list">
-        <div class="br-item" role="listitem">
-          <div class="row align-items-center">
-            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-            <div class="col option-label">Meu INSS</div>
-            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
-        <span class="br-divider"></span>
-        <div class="br-item" role="listitem">
-          <div class="row align-items-center">
-            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M20 8.5c0 5-3.5 9-8 11.5-4.5-2.5-8-6.5-8-11.5a8 8 0 0 1 16 0z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6v6l4 2" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span></div>
-            <div class="col option-label">Cartão do SUS</div>
-            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
-        <span class="br-divider"></span>
-        <div class="br-item" role="listitem">
-          <div class="row align-items-center">
-            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#1351b4" stroke-width="1.8" stroke-linecap="round"/></svg></span></div>
-            <div class="col option-label">Meus documentos</div>
-            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
-        <span class="br-divider"></span>
-        <div class="br-item" role="listitem">
-          <div class="row align-items-center">
-            <div class="col-auto"><span class="icon-box"><svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span></div>
-            <div class="col option-label">Meus benefícios</div>
-            <div class="col-auto"><svg class="chevron" width="20" height="20" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          </div>
-        </div>
+      <div class="services-grid">
+        <button class="service-card" type="button" data-label="Meu INSS">
+          <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="label">Meu INSS</span>
+        </button>
+        <button class="service-card" type="button" data-label="Cartão do SUS">
+          <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><path d="M20 8.5c0 5-3.5 9-8 11.5-4.5-2.5-8-6.5-8-11.5a8 8 0 0 1 16 0z" fill="none" stroke="#1351b4" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 6v6l4 2" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+          <span class="label">Cartão do SUS</span>
+        </button>
+        <button class="service-card" type="button" data-label="Meus documentos" onclick="location.href='documentos.html'">
+          <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="#1351b4" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+          <span class="label">Meus documentos</span>
+        </button>
+        <button class="service-card" type="button" data-label="Meus benefícios">
+          <span class="icon"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" fill="none" stroke="#1351b4" stroke-width="1.8"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6" stroke="#1351b4" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg></span>
+          <span class="label">Meus benefícios</span>
+        </button>
       </div>
     </div>
   </div>
@@ -333,17 +330,6 @@
       <svg width="22" height="22" viewBox="0 0 24 24"><rect x="6" y="4" width="12" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="9" y="2.5" width="6" height="3" rx="1" fill="currentColor"/><line x1="9" y1="11" x2="15" y2="11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><line x1="9" y1="15" x2="15" y2="15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
       Dados
     </button>
-    <button class="nav-fab" type="button" aria-label="QR Code">
-      <svg width="24" height="24" viewBox="0 0 24 24">
-        <rect x="3" y="3" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
-        <rect x="14" y="3" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
-        <rect x="3" y="14" width="7" height="7" fill="none" stroke="#fff" stroke-width="1.8"/>
-        <rect x="14" y="14" width="3" height="3" fill="#fff"/>
-        <rect x="18" y="14" width="3" height="3" fill="#fff"/>
-        <rect x="14" y="18" width="3" height="3" fill="#fff"/>
-        <rect x="18" y="18" width="3" height="3" fill="#fff"/>
-      </svg>
-    </button>
     <button class="nav-item" type="button">
       <svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/><circle cx="7" cy="14.5" r="1.4" fill="currentColor"/></svg>
       Carteira
@@ -355,5 +341,17 @@
   </div>
 
 </div>
+
+<script>
+  var searchInput = document.querySelector('.search-bar input');
+  var cards = document.querySelectorAll('.service-card');
+  searchInput.addEventListener('input', function() {
+    var q = searchInput.value.trim().toLowerCase();
+    cards.forEach(function(card) {
+      var label = card.getAttribute('data-label').toLowerCase();
+      card.classList.toggle('hidden', q !== '' && !label.includes(q));
+    });
+  });
+</script>
 </body>
 </html>

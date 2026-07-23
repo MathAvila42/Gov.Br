@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meus documentos</title>
+<script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .content {
+    flex: 1;
+    padding: var(--space-2xl) var(--page-x) 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .thanks-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .thanks-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #e6f4e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  h1.thanks-title {
+    font-size: var(--fs-title);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0;
+  }
+
+  .bottom-section {
+    flex-shrink: 0;
+    padding: 0 var(--page-x) var(--space-2xl);
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+
+  <div class="content">
+    <button class="back-btn" type="button" onclick="history.back()" aria-label="Voltar">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div class="spacer"></div>
+
+    <div class="thanks-wrap">
+      <span class="thanks-icon">
+        <svg width="36" height="36" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="var(--govbr-green)"/><path d="M7 12.5l3 3 7-7" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <h1 class="thanks-title">Obrigado por ter nos ajudado!</h1>
+    </div>
+
+    <div class="spacer"></div>
+  </div>
+
+  <div class="bottom-section">
+    <button class="br-button primary large block" type="button" onclick="location.href='dashboard.html'">Voltar ao início</button>
+  </div>
+
+</div>
+</body>
+</html>
