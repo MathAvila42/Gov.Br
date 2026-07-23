@@ -557,6 +557,7 @@
     function render() {
       var step = steps[current];
       var target = document.querySelector(step.selector);
+      target.scrollIntoView({ block: 'nearest', behavior: 'auto' });
       var phoneRect = phone.getBoundingClientRect();
       var rect = target.getBoundingClientRect();
       var pad = 8;
