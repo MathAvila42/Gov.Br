@@ -594,7 +594,6 @@
     btnEl.addEventListener('click', function() {
       current++;
       if (current >= steps.length) {
-        try { localStorage.setItem('govbr_onboarding_done', '1'); } catch (e) {}
         overlay.remove();
         window.removeEventListener('resize', onResize);
         return;
@@ -606,12 +605,7 @@
     window.addEventListener('resize', onResize);
   }
 
-  (function() {
-    var seen = null;
-    try { seen = localStorage.getItem('govbr_onboarding_done'); } catch (e) {}
-    if (seen) return;
-    startOnboarding();
-  })();
+  startOnboarding();
 </script>
 </body>
 </html>
