@@ -46,6 +46,13 @@
     pointer-events: none;
   }
 
+  /* This option's label always previews the "large" scale's button size (21px,
+     matching html.text-large's --fs-button) so it stays consistent with what the
+     whole app actually becomes once it's selected - no size jump on selection. */
+  .size-option.larger {
+    font-size: 21px;
+  }
+
   .size-option:has(input:checked) {
     border-color: var(--govbr-blue);
     background: #dce8fa;
@@ -66,6 +73,9 @@
 <div class="phone">
 
   <div class="content">
+    <button class="back-btn" type="button" onclick="history.back()" aria-label="Voltar">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
     <h1 class="title">Escolha a forma mais confortável para visualizar as telas do aplicativo.</h1>
 
     <label class="size-option">
@@ -73,7 +83,7 @@
       Eu prefiro esta opção
     </label>
 
-    <label class="size-option">
+    <label class="size-option larger">
       <input type="radio" name="tamanho-texto" value="maior">
       Eu prefiro esta opção
     </label>

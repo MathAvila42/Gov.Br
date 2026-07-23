@@ -41,24 +41,29 @@
     flex-shrink: 0;
   }
 
-  .cpf-underline {
+  .back-btn {
+    align-self: flex-start;
+  }
+
+  .text-field {
     width: 100%;
-    border: none;
-    border-bottom: 1px solid var(--gray-400);
+    height: var(--touch-target);
+    border: 1px solid var(--gray-400);
+    border-radius: var(--radius-md);
     background: transparent;
     font-size: var(--fs-body);
     color: var(--gray-900);
-    padding: var(--space-sm) 2px;
+    padding: 0 var(--space-md);
     font-family: inherit;
   }
 
-  .cpf-underline::placeholder {
+  .text-field::placeholder {
     color: var(--gray-700);
     font-style: normal;
   }
 
-  .cpf-underline:focus {
-    border-bottom: 2px solid var(--govbr-blue);
+  .text-field:focus {
+    border: 2px solid var(--govbr-blue);
   }
 
   .forgot-link {
@@ -97,18 +102,22 @@
 <div class="phone">
 
   <div class="content">
+    <button class="back-btn" type="button" onclick="history.back()" aria-label="Voltar">
+      <svg width="22" height="22" viewBox="0 0 24 24"><path d="M15 4l-8 8 8 8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
     <img class="entrar-logo" src="assets/govbr-logo.png" alt="gov.br">
 
     <div class="spacer-lg"></div>
 
     <div class="field-wrap">
-      <input class="cpf-underline" type="text" inputmode="numeric" placeholder="Número de CPF" aria-label="Número de CPF">
+      <input class="text-field" type="text" inputmode="numeric" placeholder="Número de CPF" aria-label="Número de CPF">
     </div>
 
     <div class="field-gap"></div>
 
     <div class="field-wrap">
-      <input class="cpf-underline" type="password" placeholder="Senha" aria-label="Senha">
+      <input class="text-field" type="password" placeholder="Senha" aria-label="Senha">
     </div>
 
     <div class="spacer-sm"></div>
