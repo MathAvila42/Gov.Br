@@ -17,9 +17,17 @@
     flex-shrink: 0;
     background: #f7f7f8;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    padding: var(--space-3xl) 0 var(--space-2xl);
+    padding: var(--space-3xl) var(--page-x) var(--space-2xl);
+  }
+
+  .top-white .welcome-text {
+    font-size: var(--fs-label);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0 0 var(--space-sm);
   }
 
   .top-white .top-logo {
@@ -35,13 +43,22 @@
     flex-direction: column;
     position: relative;
     background-color: var(--govbr-blue);
-    background-image: url('assets/paper-texture.jpg');
+    overflow: hidden;
+  }
+
+  .blue-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/paper-texture-real.jpg');
     background-size: cover;
     background-position: center;
-    background-blend-mode: overlay;
+    opacity: 0.2;
+    pointer-events: none;
   }
 
   .greeting {
+    position: relative;
     padding: var(--space-2xl) var(--page-x) 0;
   }
 
@@ -83,6 +100,7 @@
 <div class="phone">
 
   <div class="top-white">
+    <p class="welcome-text">Boas-vindas</p>
     <img class="top-logo" src="assets/govbr-logo.png" alt="gov.br">
   </div>
 
