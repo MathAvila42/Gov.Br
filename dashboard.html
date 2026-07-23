@@ -257,6 +257,65 @@
   .nav-item.active {
     color: var(--govbr-blue);
   }
+
+  /* ---------- First-run onboarding tour (spotlight + tooltip) ---------- */
+  #onboarding-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 50;
+  }
+
+  .onboarding-spotlight {
+    position: absolute;
+    border-radius: 16px;
+    box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.65);
+    pointer-events: none;
+  }
+
+  .onboarding-tooltip {
+    position: absolute;
+    width: 240px;
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .onboarding-tooltip .step-count {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--govbr-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 0 0 4px;
+  }
+
+  .onboarding-tooltip h3 {
+    font-size: var(--fs-label);
+    font-weight: 700;
+    color: var(--gray-900);
+    margin: 0 0 6px;
+  }
+
+  .onboarding-tooltip p.desc {
+    font-size: var(--fs-small);
+    color: var(--govbr-gray);
+    line-height: 1.4;
+    margin: 0 0 var(--space-md);
+  }
+
+  .onboarding-tooltip button {
+    width: 100%;
+    height: 44px;
+    border: none;
+    border-radius: 999px;
+    background: var(--govbr-blue);
+    color: #fff;
+    font-weight: 700;
+    font-size: var(--fs-small);
+    font-family: inherit;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -352,6 +411,93 @@
       card.classList.toggle('hidden', q !== '' && !label.includes(q));
     });
   });
+</script>
+
+<script>
+  (function() {
+    var seen = null;
+    try { seen = localStorage.getItem('govbr_onboarding_done'); } catch (e) {}
+    if (seen) return;
+
+    var steps = [
+      { selector: '.search-bar', title: 'Campo de busca', desc: 'Digite aqui para encontrar rapidamente os serviços que você precisa.' },
+      { selector: '.services-grid', title: 'Serviços mais usados', desc: 'Aqui ficam os serviços que você mais utiliza, com acesso rápido.' },
+      { selector: '.avatar', title: 'Seu perfil', desc: 'Toque aqui para ver e editar suas informações pessoais.' }
+    ];
+    var current = 0;
+
+    var phone = document.querySelector('.phone');
+    var overlay = document.createElement('div');
+    overlay.id = 'onboarding-overlay';
+
+    var spotlight = document.createElement('div');
+    spotlight.className = 'onboarding-spotlight';
+
+    var tooltip = document.createElement('div');
+    tooltip.className = 'onboarding-tooltip';
+    tooltip.innerHTML =
+      '<p class="step-count"></p>' +
+      '<h3></h3>' +
+      '<p class="desc"></p>' +
+      '<button type="button"></button>';
+
+    overlay.appendChild(spotlight);
+    overlay.appendChild(tooltip);
+    phone.appendChild(overlay);
+
+    var stepCountEl = tooltip.querySelector('.step-count');
+    var titleEl = tooltip.querySelector('h3');
+    var descEl = tooltip.querySelector('.desc');
+    var btnEl = tooltip.querySelector('button');
+
+    function render() {
+      var step = steps[current];
+      var target = document.querySelector(step.selector);
+      var phoneRect = phone.getBoundingClientRect();
+      var rect = target.getBoundingClientRect();
+      var pad = 8;
+
+      var top = rect.top - phoneRect.top - pad;
+      var left = rect.left - phoneRect.left - pad;
+      var width = rect.width + pad * 2;
+      var height = rect.height + pad * 2;
+
+      spotlight.style.top = top + 'px';
+      spotlight.style.left = left + 'px';
+      spotlight.style.width = width + 'px';
+      spotlight.style.height = height + 'px';
+
+      stepCountEl.textContent = (current + 1) + ' de ' + steps.length;
+      titleEl.textContent = step.title;
+      descEl.textContent = step.desc;
+      btnEl.textContent = current === steps.length - 1 ? 'Concluir' : 'Avançar';
+
+      var tooltipLeft = Math.max(16, Math.min(left, phoneRect.width - 240 - 16));
+      tooltip.style.left = tooltipLeft + 'px';
+
+      var spaceBelow = phoneRect.height - (top + height);
+      if (spaceBelow > 170) {
+        tooltip.style.top = (top + height + 12) + 'px';
+        tooltip.style.bottom = 'auto';
+      } else {
+        tooltip.style.top = 'auto';
+        tooltip.style.bottom = (phoneRect.height - top + 12) + 'px';
+      }
+    }
+
+    btnEl.addEventListener('click', function() {
+      current++;
+      if (current >= steps.length) {
+        try { localStorage.setItem('govbr_onboarding_done', '1'); } catch (e) {}
+        overlay.remove();
+        return;
+      }
+      render();
+    });
+
+    render();
+    window.addEventListener('resize', render);
+  })();
 </script>
 </body>
 </html>
