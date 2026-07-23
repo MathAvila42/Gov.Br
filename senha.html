@@ -24,7 +24,7 @@
   }
 
   .spacer-lg {
-    flex: 1.6;
+    flex: 1.1;
   }
 
   .spacer-sm {
@@ -33,6 +33,11 @@
 
   .field-wrap {
     width: 100%;
+    flex-shrink: 0;
+  }
+
+  .field-gap {
+    height: var(--space-lg);
     flex-shrink: 0;
   }
 
@@ -54,6 +59,15 @@
 
   .cpf-underline:focus {
     border-bottom: 2px solid var(--govbr-blue);
+  }
+
+  .forgot-link {
+    flex-shrink: 0;
+    color: var(--govbr-blue);
+    font-size: var(--fs-body);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
   }
 
   .bottom-section {
@@ -107,11 +121,21 @@
       <input class="cpf-underline" type="text" inputmode="numeric" placeholder="Número de CPF" aria-label="Número de CPF">
     </div>
 
+    <div class="field-gap"></div>
+
+    <div class="field-wrap">
+      <input class="cpf-underline" type="password" placeholder="Senha" aria-label="Senha">
+    </div>
+
+    <div class="spacer-sm"></div>
+
+    <a class="forgot-link" href="#">Esqueci a senha</a>
+
     <div class="spacer-sm"></div>
   </div>
 
   <div class="bottom-section">
-    <button class="btn-primary" type="button" onclick="location.href='senha.html'">Entrar</button>
+    <button class="btn-primary" type="button" onclick="location.href='vamos-provar.html'">Entrar</button>
     <button class="btn-secondary" type="button" onclick="location.href='cpf-login.html'">
       Entrar com <img class="inline-logo" src="assets/govbr-logo.png" alt="gov.br">
     </button>
