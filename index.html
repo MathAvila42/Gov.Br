@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>gov.br</title>
+<script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <!-- Design System de Governo Federal (@govbr-ds/core v3.7.0), vendored locally -->
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
@@ -74,10 +75,10 @@
   }
 
   .br-sign-in.primary.block {
-    --button-large: 35px;
-    font-size: 16px;
+    --button-large: var(--touch-target);
+    font-size: var(--fs-button);
     font-weight: 400;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
   .br-sign-in strong {
     font-weight: 800;
@@ -85,13 +86,14 @@
 
   p.entrar-sub {
     text-align: center;
-    color: #8a8a8a;
-    font-size: 14px;
-    margin: 0 0 40px;
+    color: var(--govbr-gray);
+    font-size: var(--fs-small);
+    line-height: 1.4;
+    margin: 0 0 32px;
   }
   p.entrar-sub strong {
     font-weight: 700;
-    color: #6d6d6d;
+    color: var(--govbr-text);
   }
 
   .qr-row {
@@ -101,8 +103,9 @@
     gap: 8px;
     color: var(--govbr-blue);
     font-weight: 700;
-    font-size: 15px;
+    font-size: var(--fs-small);
     margin-bottom: 8px;
+    min-height: 44px;
   }
 
 </style>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>sso.acesso.gov.br</title>
+<script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <!-- Design System de Governo Federal (@govbr-ds/core v3.7.0), vendored locally -->
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
@@ -39,9 +40,10 @@
   }
 
   h1.title {
-    font-size: 23px;
+    font-size: var(--fs-title);
     font-weight: 700;
     color: #101010;
+    line-height: 1.3;
     margin: 0 0 30px;
   }
 
@@ -53,8 +55,8 @@
   }
 
   .field-label-row .icon-box {
-    width: 34px;
-    height: 26px;
+    width: 38px;
+    height: 30px;
     background: var(--govbr-blue);
     border-radius: 4px;
     display: flex;
@@ -64,28 +66,33 @@
   }
 
   .field-label-row span {
-    font-size: 18px;
+    font-size: var(--fs-body);
     font-weight: 700;
     color: #101010;
   }
 
   p.helper {
-    font-size: 15px;
+    font-size: var(--fs-body);
     color: #3a3a3a;
     margin: 0 0 26px;
-    line-height: 1.4;
+    line-height: 1.45;
   }
 
   .other-options-title {
-    font-size: 16px;
+    font-size: var(--fs-label);
     color: #101010;
     padding-bottom: 10px;
     border-bottom: 2px solid #101010;
     margin-bottom: 8px;
   }
 
+  .br-list .br-item {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
   .br-list .option-label {
-    font-size: 16px;
+    font-size: var(--fs-body);
     color: #101010;
   }
 
@@ -95,7 +102,7 @@
   }
 
   .br-tag {
-    font-size: 10px;
+    font-size: 11px;
     white-space: nowrap;
     text-transform: uppercase;
   }

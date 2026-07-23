@@ -3,34 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <title>Qual texto você lê melhor?</title>
+<script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
 <style>
   .content {
     flex: 1;
-    padding: 48px 24px 16px;
+    padding: 48px 28px 16px;
     display: flex;
     flex-direction: column;
   }
 
   h1.title {
     text-align: center;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: var(--fs-title);
+    font-weight: 700;
     color: var(--govbr-blue);
-    margin: 0 0 40px;
+    margin: 0 0 16px;
+  }
+
+  p.subtitle {
+    text-align: center;
+    font-size: var(--fs-small);
+    color: var(--govbr-gray);
+    margin: 0 0 32px;
   }
 
   .size-option {
     display: block;
     cursor: pointer;
-    background: #d9d9d9;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    padding: 24px 20px;
-    margin-bottom: 28px;
+    background: #f2f2f2;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    padding: 26px 22px;
+    margin-bottom: 24px;
     color: #1c1c1c;
     font-weight: 400;
+    min-height: var(--touch-target);
   }
 
   .size-option input {
@@ -39,12 +48,17 @@
     pointer-events: none;
   }
 
-  .size-option.small { font-size: 15px; line-height: 1.4; }
-  .size-option.large { font-size: 22px; line-height: 1.35; font-weight: 500; }
+  .size-option.small { font-size: 17px; line-height: 1.4; }
+  .size-option.large { font-size: 24px; line-height: 1.35; font-weight: 500; }
 
   .size-option:has(input:checked) {
     border-color: var(--govbr-blue);
     background: #dce8fa;
+  }
+
+  .size-option:has(input:focus-visible) {
+    outline: 3px solid var(--govbr-blue-vivid);
+    outline-offset: 2px;
   }
 </style>
 </head>
@@ -53,14 +67,15 @@
 
   <div class="content">
     <h1 class="title">Qual texto você lê melhor?</h1>
+    <p class="subtitle">Escolha o tamanho de letra mais confortável para você. Dá para mudar depois quando quiser.</p>
 
     <label class="size-option small">
-      <input type="radio" name="tamanho-texto" value="pequeno" onchange="location.href='opcoes-ajuda.html'">
+      <input type="radio" name="tamanho-texto" value="pequeno">
       Texto comprido aqui pra teste de tamanho
     </label>
 
     <label class="size-option large">
-      <input type="radio" name="tamanho-texto" value="grande" onchange="location.href='opcoes-ajuda.html'">
+      <input type="radio" name="tamanho-texto" value="grande">
       Texto comprido aqui pra teste de tamanho
     </label>
   </div>
@@ -73,5 +88,20 @@
   </div>
 
 </div>
+
+<script>
+  var saved = 'normal';
+  try { saved = localStorage.getItem('govbr_text_scale') || 'normal'; } catch(e) {}
+  var radios = document.querySelectorAll('input[name="tamanho-texto"]');
+  radios.forEach(function(r) {
+    r.checked = (saved === 'large' && r.value === 'grande') || (saved !== 'large' && r.value === 'pequeno');
+    r.addEventListener('change', function() {
+      var scale = r.value === 'grande' ? 'large' : 'normal';
+      try { localStorage.setItem('govbr_text_scale', scale); } catch(e) {}
+      document.documentElement.classList.toggle('text-large', scale === 'large');
+      setTimeout(function() { location.href = 'opcoes-ajuda.html'; }, 350);
+    });
+  });
+</script>
 </body>
 </html>

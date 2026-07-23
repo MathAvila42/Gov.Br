@@ -3,35 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <title>vamos lá</title>
+<script>(function(){try{if(localStorage.getItem('govbr_text_scale')==='large')document.documentElement.classList.add('text-large');}catch(e){}})();</script>
 <link rel="stylesheet" href="assets/vendor/govbr-ds-core.min.css">
 <link rel="stylesheet" href="styles.css">
 <style>
   .content {
     flex: 1;
-    padding: 64px 24px 0;
+    padding: 64px 28px 0;
     display: flex;
     flex-direction: column;
   }
 
   h1.title {
     text-align: center;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: var(--fs-title);
+    font-weight: 700;
     color: var(--govbr-blue);
-    margin: 0 0 40px;
+    margin: 0 0 32px;
   }
 
   p.intro {
     text-align: center;
-    font-size: 16.8px;
-    line-height: 1.5;
-    color: #333333;
+    font-size: var(--fs-body);
+    line-height: 1.55;
+    color: var(--govbr-body-text);
     margin: 0;
   }
 
   .bottom-section {
     flex-shrink: 0;
-    padding: 0 24px 8px;
+    padding: 0 28px 8px;
   }
 </style>
 </head>

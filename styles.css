@@ -9,10 +9,34 @@
   --govbr-yellow: #ffcd07;
   --govbr-red: #e52207;
   --govbr-text: #1c1c1c;
-  --govbr-gray: #6d6d6d;
-  --govbr-gray-light: #949494;
+  /* Darkened vs. the raw gray-40/gray-30 tokens: plain gov.br gray text fails WCAG AA
+     at small sizes, which matters more for older/low-vision readers. */
+  --govbr-gray: #595959;
+  --govbr-gray-light: #6b6b6b;
   --govbr-body-text: #333333;
   --govbr-input-yellow: #fbf3c4;
+
+  /* ---------- Elderly-friendly type scale ----------
+     Rawline Dynamic Type (UIKIT iOS 13 - Tema GOVBR-DS) uses 16.8px for Body; we start a
+     couple of steps above that baseline, then "text-large" (driven by texto-tamanho.html,
+     persisted in localStorage) steps up again for anyone who needs it. */
+  --fs-title: 23px;
+  --fs-body: 18px;
+  --fs-button: 19px;
+  --fs-label: 17px;
+  --fs-small: 15px;
+
+  /* Minimum comfortable touch target (WCAG 2.5.5 AAA is 44px; we go bigger for older users) */
+  --touch-target: 56px;
+}
+
+html.text-large {
+  --fs-title: 27px;
+  --fs-body: 21px;
+  --fs-button: 21px;
+  --fs-label: 19px;
+  --fs-small: 17px;
+  --touch-target: 60px;
 }
 
 * {
@@ -31,6 +55,15 @@ body {
   display: flex;
   justify-content: center;
   padding: 24px 0;
+}
+
+/* Strong, unmissable focus ring for keyboard/switch-device navigation */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--govbr-blue-vivid);
+  outline-offset: 2px;
 }
 
 .phone {
@@ -131,7 +164,7 @@ body {
   justify-content: center;
   gap: 6px;
   padding-bottom: 14px;
-  color: #b9c4dc;
+  color: #767676;
   font-size: 14px;
 }
 
@@ -140,18 +173,43 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
   height: 48px;
   flex-shrink: 0;
 }
 
 .step-dots .dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #a8c6f6;
 }
 
 .step-dots .dot.active {
   background: #2670e8;
+}
+
+/* ---------- DSGov component overrides: bigger touch targets for older users ---------- */
+.br-button.large,
+.br-sign-in.large {
+  --button-large: var(--touch-target);
+  font-size: var(--fs-button);
+}
+
+.br-input input {
+  height: var(--touch-target) !important;
+  font-size: var(--fs-body) !important;
+}
+
+.br-input label {
+  font-size: var(--fs-label) !important;
+}
+
+.br-checkbox {
+  --checkbox-size: 30px;
+}
+
+.br-checkbox label {
+  font-size: var(--fs-body) !important;
+  line-height: 1.4 !important;
 }
